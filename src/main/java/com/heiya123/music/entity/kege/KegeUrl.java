@@ -779,7 +779,7 @@ public class KegeUrl {
             private String nick;
             private int num;
             private int type;
-            private int uIsInvisble;
+            private long uIsInvisble;
             private String uid;
 
             public String getAvatar() {
@@ -814,11 +814,11 @@ public class KegeUrl {
                 this.type = type;
             }
 
-            public int getUIsInvisble() {
+            public long getUIsInvisble() {
                 return uIsInvisble;
             }
 
-            public void setUIsInvisble(int uIsInvisble) {
+            public void setUIsInvisble(long uIsInvisble) {
                 this.uIsInvisble = uIsInvisble;
             }
 

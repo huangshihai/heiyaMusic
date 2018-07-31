@@ -12,22 +12,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NeteaseEncryption {
-    private final static String modulus = "00e0b509f6259df8642dbc35662901477df22677ec152b5ff68ace615bb7" +
+    private final static String MODULUS = "00e0b509f6259df8642dbc35662901477df22677ec152b5ff68ace615bb7" +
             "b725152b3ab17a876aea8a5aa76d2e417629ec4ee341f56135fccf695280" +
             "104e0312ecbda92557c93870114af6c9d05c4f7f0c3685b7a46bee255932" +
             "575cce10b424d813cfe4875d3e82047b97ddef52741d546b8e289dc6935b" +
             "3ece0462db0a22b8e7";
 
-    private final static String nonce = "0CoJUm6Qyw8W8jud";
-    private final static String pubKey = "010001";
+    private final static String NONCE = "0CoJUm6Qyw8W8jud";
+    private final static String PUBKEY = "010001";
 
     private static final String PARAMS = "params";
     private static final String ENCSECKEY = "encSecKey";
 
     public static Map<String, String> encrypt(String text) {
         String secKey = RandomStringUtils.random(16, "0123456789abcde");
-        String encText = aesEncrypt(aesEncrypt(text, nonce), secKey);
-        String encSecKey = rsaEncrypt(secKey, pubKey, modulus);
+        String encText = aesEncrypt(aesEncrypt(text, NONCE), secKey);
+        String encSecKey = rsaEncrypt(secKey, PUBKEY, MODULUS);
 
         Map<String, String> map = new HashMap<String, String>();
         map.put(PARAMS, encText);

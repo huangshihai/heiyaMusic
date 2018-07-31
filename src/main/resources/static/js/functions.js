@@ -789,16 +789,12 @@ function initList() {
             musicList[i].item = [];
             if(musicList[i].id) {   // 列表ID已定义
                 // ajax获取列表信息
-                if(musicList[i].id == 9005288001 || musicList[i].id == 9005288002){
-                    ajaxKgPlayList(musicList[i].id, i);
-                }else{
-                    ajaxPlayList(musicList[i].id, i);
-                }
+                ajaxPlayList(musicList[i].id, i);
             } else {    // 列表 ID 未定义
                 if(!musicList[i].name) musicList[i].name = '未命名';
             }
         }
-        
+
         // 在前端显示出来
         addSheet(i, musicList[i].name, musicList[i].cover);
     }
@@ -808,7 +804,10 @@ function initList() {
         ajaxUserList(rem.uid);
         return true;
     }
-    
+
+    // 加载全民K歌歌单
+    ajaxKgUserList();
+
     // 首页显示默认列表
     if(mkPlayer.defaultlist >= musicList.length) mkPlayer.defaultlist = 1;  // 超出范围，显示正在播放列表
     

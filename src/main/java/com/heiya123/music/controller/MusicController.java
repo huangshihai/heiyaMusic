@@ -7,6 +7,7 @@ import com.heiya123.music.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -65,13 +66,26 @@ public class MusicController {
     @PostMapping("/playList")
     public String playList(String id, String callback) {
         String playList = null;
-        if ("9005288001".equals(id)) {
-            playList = kgService.playList("619f94812d2e328e32");
-        } else if ("9005288002".equals(id)) {
-            playList = kgService.playList("63999887222f3f8235");
+        if (!StringUtils.isEmpty(id) && id.startsWith("kg-")) {
+            playList = kgService.playList(id.substring(3));
         } else {
             playList = neteaseMusicService.playList(id);
         }
+        return callback + "(" + playList + ")";
+
+    }
+
+    /**
+     * 歌单
+     *
+     * @param id
+     * @param callback
+     * @return
+     */
+    @PostMapping("/kgUserList")
+    public String kgUserList(String callback) {
+        String playList = null;
+        playList = kgService.kgUserList();
         return callback + "(" + playList + ")";
 
     }

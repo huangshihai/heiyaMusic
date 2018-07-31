@@ -7,4 +7,6 @@ public interface KgService {
     String loadMusicUrl(String id);
 
     String playList(String id);
+
+    String kgUserList();
 }

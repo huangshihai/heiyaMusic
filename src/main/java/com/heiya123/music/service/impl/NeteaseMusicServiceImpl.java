@@ -98,6 +98,7 @@ public class NeteaseMusicServiceImpl implements NeteaseMusicService {
      * @param id
      * @return
      */
+    @Override
     public String loadMusicUrl(String id) {
         Map<String, String> map = new HashMap<>();
         map.put("ids","[" + id + "]");
