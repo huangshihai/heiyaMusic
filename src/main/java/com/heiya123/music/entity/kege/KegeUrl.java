@@ -3,28 +3,11 @@ package com.heiya123.music.entity.kege;
 import java.util.List;
 
 public class KegeUrl {
-
-    /**
-     * code :
-     * detail : {"activity_id":0,"avatar":"http://shp.qlogo.cn/ttsing/329483556/329483556/100","client_key":"","comment_num":3,"comments":[{"avatar":"http://shp.qlogo.cn/ttsing/628003389/628003389/100","comment_id":"628003389_1516546628_228569_7560","content":"假装不哭太悲哀，感动流泪坦白白","ctime":1516546628,"is_owner":0,"nick":"小张","reply_avatar":"","reply_nick":"","uid":"649f9585252e34833d"},{"avatar":"http://shp.qlogo.cn/ttsing/256964768/256964768/100","comment_id":"256964768_1516549362_587631_922","content":"好厉害啊，这一人唱男女","ctime":1516549362,"is_owner":0,"nick":"风铃草","reply_avatar":"","reply_nick":"","uid":"60989b8c2329308d3c"},{"avatar":"http://shp.qlogo.cn/ttsing/327090944/327090944/100","comment_id":"327090944_1516590857_96489_546","content":"真厉害，歌神啊","ctime":1516590857,"is_owner":0,"nick":"sunshine","reply_avatar":"","reply_nick":"","uid":"619f9a852c2d3e8f30"}],"content":"自己和自己玩X2[em]e400824[/em]","cover":"http://shp.qpic.cn/ttkg/0/c724c9ef3198a4a8047e47ef83f9fafc598123ae/640?j=PiajxSqBRaEIf0bHhsJQ0QVoFSjos8ibuwib8icMibSGWGru7aj84uAW826V84GUk58dtVGrIjzPEcNIuZJAHJGfHTCKZCiaU6HnUMq7Woze7wYFP953IXFI2FzEOFosRQwV7jmqE7MXQIErA","ctime":1516538293,"f_lat":"20.0387","f_lon":"20.0387110.341","fb_cover":"http://shp.qpic.cn/ttkg/0/c724c9ef3198a4a8047e47ef83f9fafc598123ae/200?j=PiajxSqBRaEIf0bHhsJQ0QVoFSjos8ibuwib8icMibSGWGru7aj84uAW826V84GUk58dtqf27eKC51gRtLapYyjVa4xMKNdBITgxgPNEuo4Eia9KA0XMCKXib4LJUFKExqaFLjwQYoNKsDs4Ag","file_mid":"002xsdLS1rrVK1","flower":[{"avatar":"http://shp.qlogo.cn/ttsing/510720713/510720713/100","nick":"烟饼","num":21,"type":0,"uIsInvisble":178871068,"uid":"679c9d82272d308a37"},{"avatar":"http://shp.qlogo.cn/ttsing/256964768/256964768/100","nick":"风铃草","num":40,"type":1,"uIsInvisble":178871068,"uid":"60989b8c2329308d3c"},{"avatar":"http://shp.qlogo.cn/ttsing/327090944/327090944/100","nick":"sunshine","num":20,"type":1,"uIsInvisble":178871068,"uid":"619f9a852c2d3e8f30"},{"avatar":"http://shp.qlogo.cn/ttsing/501289670/501289670/100","nick":"西西弗斯在坚持","num":4,"type":1,"uIsInvisble":178871068,"uid":"679d9c872d24318c34"},{"avatar":"http://shp.qlogo.cn/ttsing/329483556/329483556/100","nick":"聲沙","num":1,"type":1,"uIsInvisble":178871068,"uid":"619f94812d2e328e32"}],"flower_num":67,"gift_num":21,"hc_avatar":"","hc_level":0,"hc_nick":"","hc_second_sing_count":0,"hc_ugcid_half":"","hc_uid":"639a9c8d272b36893c","iHasCp":1,"is_anonymous":0,"is_segment":0,"kg_nick":"聲沙","ksong_mid":"000SMykv0U4z12","lSongMask":2048,"level":4,"mapAuth":{"0":"","10":"0","15":"0","19":"0","20":"0","3":"0","8":"0","9":"0"},"mapRight":{},"nick":"聲沙","not_show_qrc_mask":0,"photos":[],"play_num":113,"playurl":"http://dl.stream.kg.qq.com/szkge/9b57659281a02a7669fa967d74d427b23e4a024e?ftnrkey=1b6725c049821ae552db539837f3b5c801a1d08d10b16110c7395d46261df24e4e71cf505590ced68441f284a03a589a06f8dd8b8e8c1493102e4cdedd63ff7c&vkey=031463BF3A1780889FD42ECADE49FDFB123ADD5C1D9DAE68493CD2288617B1A9D1637711F3709ABC7F62507B6C776B12014675468974DE912D8CC3E5F8E41D4A41F97EB9119C660149EB7BAB942682ED7AFF83CED66250BD&fname=1021_ca24c9ef3198a4a8547e47ef80f987fc198158ad.0.m4a&fromtag=1506&sdtfrom=v1506","playurl_video":"","poi_id":"10754079224470937456","score":4944,"scoreRank":6,"segment_end":333401,"segment_start":0,"sentence_count":50,"short_video_tag_id":"","singer_mid":"003tMm0y0TuewY","singer_name":"杨宗纬/张碧晨","song_name":"凉凉","tail_name":"iPhone 8","total":3,"ugc_id":"329483556_1516538293_411","ugc_mask":262148,"ugctype":0,"uid":"619f94812d2e328e32"}
-     * downloadConfig : {"link":"http://d3g.qq.com/musicapp/kge/2910/karaoke_4.5.5.275_android_r61424_20180130223431_release_WXCPFEED_D.apk","md5":"c12401a0dc09f911a18f945179db1ac6"}
-     * isMV : false
-     * isPcQQMusic : false
-     * lang : {"alert_title":"弹窗标题","bullet":"弹幕","close":"关闭","comment_max_length":"评论不能超过140个字符","comment_success":"评论成功","comments":"评论","confirm":"确定","dowload_now":"立即下载","download":"下载","download_get_flower":"想要更多鲜花？快去下载全民K歌APP吧！","download_see_friends_comment":"下载全民K歌APP，可以查看好友的回复哦！","download_see_more":"下载全民K歌，演唱这首歌","download_see_more_comment":"下载全民K歌，查看更多评论","follow":"关注","gift_rank":"礼物榜","give_flower":"现在就去给好友的作品送花吧！","introduce":"查看作品详情、参与互动，尽在《全民K歌》","login":"登录信息失效，请重新登录","more_songs":"更多作品","musicerr_hint":"播放错误，请刷新重试","no_data_hint":"此作品不存在或被用户删除","none_flower":"鲜花已送完","open":"打开","open_see_more":"打开全民K歌，演唱这首歌","open_see_more_comment":"打开全民K歌，查看更多评论","qiangshafa":"抢沙发的机会只有一次，你还等什么？","qrcode":"二维码","qzone":"QQ空间","recieve_flower":"立即领取","register_flower":"加入K歌获得鲜花10朵","retry":"网络错误，请稍后重试","scan_follow":"扫一扫关注我","send_comment":"发送","send_flower":"给发表者送花","seo_tit_e":"，你也来下载和朋友们争夺擂主吧！","seo_tit_s":"在全民k歌录制了一首","share_intro":"全民K歌，KTV交友社区","share_tit_e":"》太棒了，快来听听（来自全民K歌，立即下载","share_tit_s":"唱的《","share_to":"分享到：","singer_count":"人合唱过","today":"今天","use_browser":"请用浏览器打开此页面，体验该功能哦","view_detail":"查看作品详情","view_more_comment":"查看更多评论","want_sing":"我也要唱","want_your_comment":"期待你的神评论","wechat_scan":"微信扫描分享朋友圈","weibo":"新浪微博","yesterday":"昨天"}
-     * langType : zh_Hans
-     * nohref : false
-     * rawCode : 0
-     * rawMessage :
-     * share : {"content":"聲沙唱的《凉凉》太棒了，快来听听（来自全民K歌，立即下载( 全民K歌，KTV交友社区 https://c.y.qq.com/r/8zQU )","img_url":"http://shp.qpic.cn/ttkg/0/c724c9ef3198a4a8047e47ef83f9fafc598123ae/200?j=PiajxSqBRaEIf0bHhsJQ0QVoFSjos8ibuwib8icMibSGWGru7aj84uAW826V84GUk58dtqf27eKC51gRtLapYyjVa4xMKNdBITgxgPNEuo4Eia9KA0XMCKXib4LJUFKExqaFLjwQYoNKsDs4Ag","link":"http://node.kg.qq.com/play?s=S3Np74SEVdRb0Szg&lang=zh_Hans","title":"凉凉"}
-     * shareid : S3Np74SEVdRb0Szg
-     * wxlogined : false
-     */
-
-    private String code;
     private DetailBean detail;
     private DownloadConfigBean downloadConfig;
     private boolean isMV;
     private boolean isPcQQMusic;
+    private boolean isTest;
     private LangBean lang;
     private String langType;
     private boolean nohref;
@@ -32,15 +15,6 @@ public class KegeUrl {
     private String rawMessage;
     private ShareBean share;
     private String shareid;
-    private boolean wxlogined;
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
 
     public DetailBean getDetail() {
         return detail;
@@ -72,6 +46,14 @@ public class KegeUrl {
 
     public void setIsPcQQMusic(boolean isPcQQMusic) {
         this.isPcQQMusic = isPcQQMusic;
+    }
+
+    public boolean isIsTest() {
+        return isTest;
+    }
+
+    public void setIsTest(boolean isTest) {
+        this.isTest = isTest;
     }
 
     public LangBean getLang() {
@@ -130,70 +112,65 @@ public class KegeUrl {
         this.shareid = shareid;
     }
 
-    public boolean isWxlogined() {
-        return wxlogined;
-    }
-
-    public void setWxlogined(boolean wxlogined) {
-        this.wxlogined = wxlogined;
-    }
-
     public static class DetailBean {
         /**
+         * _uid : 712074239
          * activity_id : 0
-         * avatar : http://shp.qlogo.cn/ttsing/329483556/329483556/100
-         * client_key :
-         * comment_num : 3
-         * comments : [{"avatar":"http://shp.qlogo.cn/ttsing/628003389/628003389/100","comment_id":"628003389_1516546628_228569_7560","content":"假装不哭太悲哀，感动流泪坦白白","ctime":1516546628,"is_owner":0,"nick":"小张","reply_avatar":"","reply_nick":"","uid":"649f9585252e34833d"},{"avatar":"http://shp.qlogo.cn/ttsing/256964768/256964768/100","comment_id":"256964768_1516549362_587631_922","content":"好厉害啊，这一人唱男女","ctime":1516549362,"is_owner":0,"nick":"风铃草","reply_avatar":"","reply_nick":"","uid":"60989b8c2329308d3c"},{"avatar":"http://shp.qlogo.cn/ttsing/327090944/327090944/100","comment_id":"327090944_1516590857_96489_546","content":"真厉害，歌神啊","ctime":1516590857,"is_owner":0,"nick":"sunshine","reply_avatar":"","reply_nick":"","uid":"619f9a852c2d3e8f30"}]
-         * content : 自己和自己玩X2[em]e400824[/em]
-         * cover : http://shp.qpic.cn/ttkg/0/c724c9ef3198a4a8047e47ef83f9fafc598123ae/640?j=PiajxSqBRaEIf0bHhsJQ0QVoFSjos8ibuwib8icMibSGWGru7aj84uAW826V84GUk58dtVGrIjzPEcNIuZJAHJGfHTCKZCiaU6HnUMq7Woze7wYFP953IXFI2FzEOFosRQwV7jmqE7MXQIErA
-         * ctime : 1516538293
-         * f_lat : 20.0387
-         * f_lon : 20.0387110.341
-         * fb_cover : http://shp.qpic.cn/ttkg/0/c724c9ef3198a4a8047e47ef83f9fafc598123ae/200?j=PiajxSqBRaEIf0bHhsJQ0QVoFSjos8ibuwib8icMibSGWGru7aj84uAW826V84GUk58dtqf27eKC51gRtLapYyjVa4xMKNdBITgxgPNEuo4Eia9KA0XMCKXib4LJUFKExqaFLjwQYoNKsDs4Ag
-         * file_mid : 002xsdLS1rrVK1
-         * flower : [{"avatar":"http://shp.qlogo.cn/ttsing/510720713/510720713/100","nick":"烟饼","num":21,"type":0,"uIsInvisble":178871068,"uid":"679c9d82272d308a37"},{"avatar":"http://shp.qlogo.cn/ttsing/256964768/256964768/100","nick":"风铃草","num":40,"type":1,"uIsInvisble":178871068,"uid":"60989b8c2329308d3c"},{"avatar":"http://shp.qlogo.cn/ttsing/327090944/327090944/100","nick":"sunshine","num":20,"type":1,"uIsInvisble":178871068,"uid":"619f9a852c2d3e8f30"},{"avatar":"http://shp.qlogo.cn/ttsing/501289670/501289670/100","nick":"西西弗斯在坚持","num":4,"type":1,"uIsInvisble":178871068,"uid":"679d9c872d24318c34"},{"avatar":"http://shp.qlogo.cn/ttsing/329483556/329483556/100","nick":"聲沙","num":1,"type":1,"uIsInvisble":178871068,"uid":"619f94812d2e328e32"}]
-         * flower_num : 67
-         * gift_num : 21
-         * hc_avatar :
-         * hc_level : 0
-         * hc_nick :
+         * avatar : http://shp.qlogo.cn/ttsing/712074239/712074239/100
+         * client_key : ebc8fcae-862a-4ce4-b914-839ffc9c9572
+         * comment_num : 5
+         * comments : [{"avatar":"http://shp.qlogo.cn/ttsing/405664884/405664884/100","comment_id":"405664884_1533200054_61599_622","content":"感谢友友的合作，友友唱得真棒","ctime":1533200054,"is_owner":0,"nick":"湖南锑城胶粘剂厂","reply_avatar":"","reply_nick":"","uid":"669d988323293f8330"},{"avatar":"http://shp.qlogo.cn/ttsing/405664884/405664884/100","comment_id":"405664884_1533200056_593871_5464","content":"气息稳如山，音准稳如钟","ctime":1533200056,"is_owner":0,"nick":"湖南锑城胶粘剂厂","reply_avatar":"","reply_nick":"","uid":"669d988323293f8330"},{"avatar":"http://shp.qlogo.cn/ttsing/405664884/405664884/100","comment_id":"405664884_1533200059_13504_2003","content":"靓颖海豚音在你面前也不过如此！","ctime":1533200059,"is_owner":0,"nick":"湖南锑城胶粘剂厂","reply_avatar":"","reply_nick":"","uid":"669d988323293f8330"},{"avatar":"http://shp.qlogo.cn/ttsing/712074239/712074239/100","comment_id":"712074239_1533200304_708413_872","content":"谢谢鼓励","ctime":1533200304,"is_owner":1,"nick":"荷塘月色","reply_avatar":"http://shp.qlogo.cn/ttsing/405664884/405664884/100","reply_nick":"湖南锑城胶粘剂厂","uid":"659c9f85222935883d"},{"avatar":"http://shp.qlogo.cn/ttsing/712074239/712074239/100","comment_id":"712074239_1533200325_216938_133","content":"谢谢你夸奖","ctime":1533200325,"is_owner":1,"nick":"荷塘月色","reply_avatar":"http://shp.qlogo.cn/ttsing/405664884/405664884/100","reply_nick":"湖南锑城胶粘剂厂","uid":"659c9f85222935883d"}]
+         * content : 我参与了合唱，快来听听吧~
+         * cover : http://shp.qpic.cn/ttkg/712074239/c14dfaeeea7e7691047e47ef83f9fafc598173ac/640?j=PiajxSqBRaEIf0bHhsJQ0QVoFSjos8ibuwib8icMibSGWGru7aj84uAW826V84GUk58dtVGrIjzPEcNIuZJAHJGfHTCuxsBCF1uUwfiaqFmlUqHSQErwM2qv5ScQ5V1Pbqib4zCoMUOXfAyAlU
+         * ctime : 1533199474
+         * f_lat : 25.6571
+         * f_lon : 25.6571114.748
+         * fb_cover : http://shp.qpic.cn/ttkg/712074239/c14dfaeeea7e7691047e47ef83f9fafc598173ac/200?j=PiajxSqBRaEIf0bHhsJQ0QVoFSjos8ibuwib8icMibSGWGru7aj84uAW826V84GUk58dtqf27eKC51gRtLapYyjVa4yxXoLicV8IShnIZ00IXUfgYuf3vibmHnI0CORqjWaDbfyGJib9rnqGDyg
+         * file_mid : 003Fbi1W3ob9an
+         * flower : [{"avatar":"http://shp.qlogo.cn/ttsing/405664884/405664884/100","nick":"湖南锑城胶粘剂厂","num":1,"type":0,"uIsInvisble":4147728384,"uid":"669d988323293f8330"},{"avatar":"http://shp.qlogo.cn/ttsing/712074239/712074239/100","nick":"荷塘月色","num":9,"type":1,"uIsInvisble":4147728384,"uid":"659c9f85222935883d"}]
+         * flower_num : 9
+         * gift_num : 1
+         * hc_avatar : http://shp.qlogo.cn/ttsing/405664884/405664884/100
+         * hc_level : 17
+         * hc_nick : 湖南锑城胶粘剂厂
          * hc_second_sing_count : 0
-         * hc_ugcid_half :
-         * hc_uid : 639a9c8d272b36893c
+         * hc_ugcid_half : 405664884_1526332285_1911
+         * hc_uid : 669d988323293f8330
          * iHasCp : 1
          * is_anonymous : 0
          * is_segment : 0
-         * kg_nick : 聲沙
-         * ksong_mid : 000SMykv0U4z12
-         * lSongMask : 2048
+         * kg_nick : 荷塘月色
+         * ksong_mid : 0048tTJo46ZnT6
+         * lSongMask : 18432
          * level : 4
-         * mapAuth : {"0":"","10":"0","15":"0","19":"0","20":"0","3":"0","8":"0","9":"0"}
+         * mapAuth : {"0":"","10":"0","15":"0","19":"0","20":"0","21":"0","22":"0","3":"0","8":"0","9":"0"}
          * mapRight : {}
-         * nick : 聲沙
+         * nick : 荷塘月色
          * not_show_qrc_mask : 0
          * photos : []
-         * play_num : 113
-         * playurl : http://dl.stream.kg.qq.com/szkge/9b57659281a02a7669fa967d74d427b23e4a024e?ftnrkey=1b6725c049821ae552db539837f3b5c801a1d08d10b16110c7395d46261df24e4e71cf505590ced68441f284a03a589a06f8dd8b8e8c1493102e4cdedd63ff7c&vkey=031463BF3A1780889FD42ECADE49FDFB123ADD5C1D9DAE68493CD2288617B1A9D1637711F3709ABC7F62507B6C776B12014675468974DE912D8CC3E5F8E41D4A41F97EB9119C660149EB7BAB942682ED7AFF83CED66250BD&fname=1021_ca24c9ef3198a4a8547e47ef80f987fc198158ad.0.m4a&fromtag=1506&sdtfrom=v1506
-         * playurl_video :
-         * poi_id : 10754079224470937456
-         * score : 4944
-         * scoreRank : 6
-         * segment_end : 333401
+         * play_num : 5
+         * playurl :
+         * playurl_video : http://dl.stream.kg.qq.com/shkge/b3d4a33fc86306711629512a8c9504c6c11f9516?ftnrkey=cc9e352797b7170a15114b06d816149e53ecd362112e67bdb612e62498261f9237a269747c8a08dcb655e9038d4bac057b0e7747006e6831195c640e8b1159eb&vkey=03CB87A08A6B98A6E45FA93E065BC0DFF269931AFA1DE5A5B982DD14BCAA8B653C9805FA24C8B34BEF343F39C7697D828C87F312B0B23D2BE3FFFE527F97D4EF67C7DB71E48D862963B81BA7D70A57F965C81801D59EBABB&fname=81_0169cfeeea7e7691557e47ef83f9fafc598104ae.0.mp4&fromtag=1508&sdtfrom=v1508
+         * poi_id : 15891749220611781553
+         * score : 1892
+         * scoreRank : 5
+         * segment_end : 226046
          * segment_start : 0
-         * sentence_count : 50
+         * sentence_count : 20
          * short_video_tag_id :
-         * singer_mid : 003tMm0y0TuewY
-         * singer_name : 杨宗纬/张碧晨
-         * song_name : 凉凉
-         * tail_name : iPhone 8
-         * total : 3
-         * ugc_id : 329483556_1516538293_411
-         * ugc_mask : 262148
-         * ugctype : 0
-         * uid : 619f94812d2e328e32
+         * singer_mid : 0040MELG3TS8OW
+         * singer_name : 费玉清
+         * song_name : 一剪梅(Live)
+         * tail_name : 小米5X
+         * total : 5
+         * ugc_id : 712074239_1533199474_2640
+         * ugc_mask : 32773
+         * ugctype : 2
+         * uid : 659c9f85222935883d
+         * userNick : 荷塘月色
          */
 
+        private String _uid;
         private int activity_id;
         private String avatar;
         private String client_key;
@@ -243,9 +220,18 @@ public class KegeUrl {
         private int ugc_mask;
         private int ugctype;
         private String uid;
+        private String userNick;
         private List<CommentsBean> comments;
         private List<FlowerBean> flower;
         private List<?> photos;
+
+        public String get_uid() {
+            return _uid;
+        }
+
+        public void set_uid(String _uid) {
+            this._uid = _uid;
+        }
 
         public int getActivity_id() {
             return activity_id;
@@ -639,6 +625,14 @@ public class KegeUrl {
             this.uid = uid;
         }
 
+        public String getUserNick() {
+            return userNick;
+        }
+
+        public void setUserNick(String userNick) {
+            this.userNick = userNick;
+        }
+
         public List<CommentsBean> getComments() {
             return comments;
         }
@@ -671,15 +665,15 @@ public class KegeUrl {
 
         public static class CommentsBean {
             /**
-             * avatar : http://shp.qlogo.cn/ttsing/628003389/628003389/100
-             * comment_id : 628003389_1516546628_228569_7560
-             * content : 假装不哭太悲哀，感动流泪坦白白
-             * ctime : 1516546628
+             * avatar : http://shp.qlogo.cn/ttsing/405664884/405664884/100
+             * comment_id : 405664884_1533200054_61599_622
+             * content : 感谢友友的合作，友友唱得真棒
+             * ctime : 1533200054
              * is_owner : 0
-             * nick : 小张
+             * nick : 湖南锑城胶粘剂厂
              * reply_avatar :
              * reply_nick :
-             * uid : 649f9585252e34833d
+             * uid : 669d988323293f8330
              */
 
             private String avatar;
@@ -767,12 +761,12 @@ public class KegeUrl {
 
         public static class FlowerBean {
             /**
-             * avatar : http://shp.qlogo.cn/ttsing/510720713/510720713/100
-             * nick : 烟饼
-             * num : 21
+             * avatar : http://shp.qlogo.cn/ttsing/405664884/405664884/100
+             * nick : 湖南锑城胶粘剂厂
+             * num : 1
              * type : 0
-             * uIsInvisble : 178871068
-             * uid : 679c9d82272d308a37
+             * uIsInvisble : 4147728384
+             * uid : 669d988323293f8330
              */
 
             private String avatar;
@@ -834,8 +828,8 @@ public class KegeUrl {
 
     public static class DownloadConfigBean {
         /**
-         * link : http://d3g.qq.com/musicapp/kge/2910/karaoke_4.5.5.275_android_r61424_20180130223431_release_WXCPFEED_D.apk
-         * md5 : c12401a0dc09f911a18f945179db1ac6
+         * link : http://d3g.qq.com/musicapp/kge/4010/karaoke_5.2.5.278_android_c59923_20180730125823_release_WXCPFEED_D.apk
+         * md5 : e83206b5387199175ba7c601add0dd45
          */
 
         private String link;
@@ -861,7 +855,9 @@ public class KegeUrl {
     public static class LangBean {
         /**
          * alert_title : 弹窗标题
+         * anko : 安子
          * bullet : 弹幕
+         * cancel : 取消
          * close : 关闭
          * comment_max_length : 评论不能超过140个字符
          * comment_success : 评论成功
@@ -872,11 +868,14 @@ public class KegeUrl {
          * download_get_flower : 想要更多鲜花？快去下载全民K歌APP吧！
          * download_see_friends_comment : 下载全民K歌APP，可以查看好友的回复哦！
          * download_see_more : 下载全民K歌，演唱这首歌
-         * download_see_more_comment : 下载全民K歌，查看更多评论
+         * download_see_more_comment : 我也要评论
          * follow : 关注
+         * friend_invite : 邀你一起来玩全民K歌啦！
          * gift_rank : 礼物榜
          * give_flower : 现在就去给好友的作品送花吧！
+         * iam : 我是
          * introduce : 查看作品详情、参与互动，尽在《全民K歌》
+         * invite_download : 我在全民K歌等你哦，快来下载全民K歌一起玩吧！
          * login : 登录信息失效，请重新登录
          * more_songs : 更多作品
          * musicerr_hint : 播放错误，请刷新重试
@@ -884,7 +883,7 @@ public class KegeUrl {
          * none_flower : 鲜花已送完
          * open : 打开
          * open_see_more : 打开全民K歌，演唱这首歌
-         * open_see_more_comment : 打开全民K歌，查看更多评论
+         * open_see_more_comment : 我也要评论
          * qiangshafa : 抢沙发的机会只有一次，你还等什么？
          * qrcode : 二维码
          * qzone : QQ空间
@@ -902,6 +901,7 @@ public class KegeUrl {
          * share_to : 分享到：
          * singer_count : 人合唱过
          * today : 今天
+         * total : 累计
          * use_browser : 请用浏览器打开此页面，体验该功能哦
          * view_detail : 查看作品详情
          * view_more_comment : 查看更多评论
@@ -909,11 +909,15 @@ public class KegeUrl {
          * want_your_comment : 期待你的神评论
          * wechat_scan : 微信扫描分享朋友圈
          * weibo : 新浪微博
+         * wesing : 全民K歌
          * yesterday : 昨天
+         * yourfriend : 你的好友
          */
 
         private String alert_title;
+        private String anko;
         private String bullet;
+        private String cancel;
         private String close;
         private String comment_max_length;
         private String comment_success;
@@ -926,9 +930,12 @@ public class KegeUrl {
         private String download_see_more;
         private String download_see_more_comment;
         private String follow;
+        private String friend_invite;
         private String gift_rank;
         private String give_flower;
+        private String iam;
         private String introduce;
+        private String invite_download;
         private String login;
         private String more_songs;
         private String musicerr_hint;
@@ -954,6 +961,7 @@ public class KegeUrl {
         private String share_to;
         private String singer_count;
         private String today;
+        private String total;
         private String use_browser;
         private String view_detail;
         private String view_more_comment;
@@ -961,7 +969,9 @@ public class KegeUrl {
         private String want_your_comment;
         private String wechat_scan;
         private String weibo;
+        private String wesing;
         private String yesterday;
+        private String yourfriend;
 
         public String getAlert_title() {
             return alert_title;
@@ -971,12 +981,28 @@ public class KegeUrl {
             this.alert_title = alert_title;
         }
 
+        public String getAnko() {
+            return anko;
+        }
+
+        public void setAnko(String anko) {
+            this.anko = anko;
+        }
+
         public String getBullet() {
             return bullet;
         }
 
         public void setBullet(String bullet) {
             this.bullet = bullet;
+        }
+
+        public String getCancel() {
+            return cancel;
+        }
+
+        public void setCancel(String cancel) {
+            this.cancel = cancel;
         }
 
         public String getClose() {
@@ -1075,6 +1101,14 @@ public class KegeUrl {
             this.follow = follow;
         }
 
+        public String getFriend_invite() {
+            return friend_invite;
+        }
+
+        public void setFriend_invite(String friend_invite) {
+            this.friend_invite = friend_invite;
+        }
+
         public String getGift_rank() {
             return gift_rank;
         }
@@ -1091,12 +1125,28 @@ public class KegeUrl {
             this.give_flower = give_flower;
         }
 
+        public String getIam() {
+            return iam;
+        }
+
+        public void setIam(String iam) {
+            this.iam = iam;
+        }
+
         public String getIntroduce() {
             return introduce;
         }
 
         public void setIntroduce(String introduce) {
             this.introduce = introduce;
+        }
+
+        public String getInvite_download() {
+            return invite_download;
+        }
+
+        public void setInvite_download(String invite_download) {
+            this.invite_download = invite_download;
         }
 
         public String getLogin() {
@@ -1299,6 +1349,14 @@ public class KegeUrl {
             this.today = today;
         }
 
+        public String getTotal() {
+            return total;
+        }
+
+        public void setTotal(String total) {
+            this.total = total;
+        }
+
         public String getUse_browser() {
             return use_browser;
         }
@@ -1355,6 +1413,14 @@ public class KegeUrl {
             this.weibo = weibo;
         }
 
+        public String getWesing() {
+            return wesing;
+        }
+
+        public void setWesing(String wesing) {
+            this.wesing = wesing;
+        }
+
         public String getYesterday() {
             return yesterday;
         }
@@ -1362,20 +1428,32 @@ public class KegeUrl {
         public void setYesterday(String yesterday) {
             this.yesterday = yesterday;
         }
+
+        public String getYourfriend() {
+            return yourfriend;
+        }
+
+        public void setYourfriend(String yourfriend) {
+            this.yourfriend = yourfriend;
+        }
     }
 
     public static class ShareBean {
         /**
-         * content : 聲沙唱的《凉凉》太棒了，快来听听（来自全民K歌，立即下载( 全民K歌，KTV交友社区 https://c.y.qq.com/r/8zQU )
-         * img_url : http://shp.qpic.cn/ttkg/0/c724c9ef3198a4a8047e47ef83f9fafc598123ae/200?j=PiajxSqBRaEIf0bHhsJQ0QVoFSjos8ibuwib8icMibSGWGru7aj84uAW826V84GUk58dtqf27eKC51gRtLapYyjVa4xMKNdBITgxgPNEuo4Eia9KA0XMCKXib4LJUFKExqaFLjwQYoNKsDs4Ag
-         * link : http://node.kg.qq.com/play?s=S3Np74SEVdRb0Szg&lang=zh_Hans
-         * title : 凉凉
+         * content : 荷塘月色唱的《一剪梅(Live)》太棒了，快来听听（来自全民K歌，立即下载( 全民K歌，KTV交友社区 https://c.y.qq.com/r/8zQU )
+         * data_url : http://cgi.kg.qq.com/fcgi-bin/fcg_get_play_url?shareid=GWgxRpGzKHP-0GfI
+         * img_url : http://shp.qpic.cn/ttkg/712074239/c14dfaeeea7e7691047e47ef83f9fafc598173ac/200?j=PiajxSqBRaEIf0bHhsJQ0QVoFSjos8ibuwib8icMibSGWGru7aj84uAW826V84GUk58dtqf27eKC51gRtLapYyjVa4yxXoLicV8IShnIZ00IXUfgYuf3vibmHnI0CORqjWaDbfyGJib9rnqGDyg
+         * link : http://node.kg.qq.com/play?s=GWgxRpGzKHP-0GfI&lang=zh_Hans&shareuid=&secondshare=1
+         * title : 一剪梅(Live)
+         * type : video
          */
 
         private String content;
+        private String data_url;
         private String img_url;
         private String link;
         private String title;
+        private String type;
 
         public String getContent() {
             return content;
@@ -1383,6 +1461,14 @@ public class KegeUrl {
 
         public void setContent(String content) {
             this.content = content;
+        }
+
+        public String getData_url() {
+            return data_url;
+        }
+
+        public void setData_url(String data_url) {
+            this.data_url = data_url;
         }
 
         public String getImg_url() {
@@ -1407,6 +1493,14 @@ public class KegeUrl {
 
         public void setTitle(String title) {
             this.title = title;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
         }
     }
 }

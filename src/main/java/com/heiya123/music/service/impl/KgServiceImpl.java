@@ -41,11 +41,11 @@ public class KgServiceImpl implements KgService {
     public String loadMusicUrl(String id) {
         String url = "http://node.kg.qq.com/play?s=" + id + "&g_f=personal";
         String rsp = OkHttpUtils.getRequest(url, null);
-        String regex = "<script type='text/javascript' >window.__DATA__ =([\\s\\S]*?(?=</script>))</script>";
+        String regex = "window.__DATA__ = ([\\s\\S]*?(?=</script>))</script>";
         Matcher matcher = Pattern.compile(regex).matcher(rsp);
         while (matcher.find()) {
             KegeUrl kegeUrl = JSON.parseObject(CommonUtils.jsonp2Json(matcher.group(1)), KegeUrl.class);
-            return kegeUrl.getDetail().getPlayurl();
+            return kegeUrl.getShare().getData_url();
         }
         return null;
     }
