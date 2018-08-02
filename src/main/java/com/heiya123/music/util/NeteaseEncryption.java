@@ -2,12 +2,12 @@ package com.heiya123.music.util;
 
 
 import org.apache.commons.lang.RandomStringUtils;
-import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.math.BigInteger;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,7 +45,7 @@ public class NeteaseEncryption {
 
             byte[] encrypted = cipher.doFinal(text.getBytes());
 
-            return new BASE64Encoder().encode(encrypted);
+            return Base64.getEncoder().encodeToString(encrypted);
         } catch (Exception e) {
             return "";
         }

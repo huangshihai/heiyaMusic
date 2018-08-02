@@ -13,8 +13,6 @@ import okhttp3.OkHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +21,6 @@ import java.util.List;
 public class XiaMiMusicServiceImpl implements XiaMiMusicService {
     private OkHttpClient okHttpClient = new OkHttpClient();
     public static Logger logger = LoggerFactory.getLogger(XiaMiMusicServiceImpl.class);
-    private BASE64Decoder decoder = new BASE64Decoder();
-    private BASE64Encoder encoder = new BASE64Encoder();
 
 
     /**
