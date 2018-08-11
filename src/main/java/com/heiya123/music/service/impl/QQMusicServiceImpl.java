@@ -7,6 +7,7 @@ import com.heiya123.music.entity.QQ.QQMusicBase;
 import com.heiya123.music.entity.QQ.QQMusicBase.DataBean.SongBean.ListBean;
 import com.heiya123.music.entity.QQ.QQMusicBase.DataBean.SongBean.ListBean.SingerBean;
 import com.heiya123.music.entity.QQ.QQMusicUrl;
+import com.heiya123.music.entity.QQ.QQMusicVkey;
 import com.heiya123.music.entity.vo.SearchRequestVo;
 import com.heiya123.music.musicEnum.MusicSourceEnum;
 import com.heiya123.music.service.QQMusicService;
@@ -42,7 +43,6 @@ public class QQMusicServiceImpl implements QQMusicService {
         List<ListBean> songs = qqMusicBase.getData().getSong().getList();
         for (ListBean song : songs) {
             Music music = new Music();
-            music.setId(song.getMedia_mid());
             /** 设置歌名 */
             music.setName(song.getSongname());
             /** 获取歌手 */
@@ -60,7 +60,9 @@ public class QQMusicServiceImpl implements QQMusicService {
             /** 设置封面图片ID */
             music.setPic_id(song.getAlbummid());
             /** 设置音乐链接ID */
-            music.setUrl_id(song.getMedia_mid());
+            String quality = song.getSizeflac() > 0 ? "flac" : song.getSizeape() > 0 ? "ape" : song.getSize320() > 0 ? "320" : "128";
+            music.setUrl_id(song.getMedia_mid() + ":" + quality);
+            music.setId(song.getMedia_mid() + ":" + quality);
             /** 设置歌词ID */
             music.setLyric_id(song.getMedia_mid());
             /** 设置封面 */
@@ -81,11 +83,29 @@ public class QQMusicServiceImpl implements QQMusicService {
      */
     @Override
     public String loadMusicUrl(String media_mid) {
-        long v = new Random(System.currentTimeMillis()).nextLong();
-        String url = "http://base.music.qq.com/fcgi-bin/fcg_musicexpress.fcg?json=3&guid=" + v;
-        QQMusicUrl qqMusicUrl = OkHttpUtils.getRequest(url, RequestHeaders.tencentHeaders, null, QQMusicUrl.class);
-        String key = qqMusicUrl.getKey();
-        return "http://ws.stream.qqmusic.qq.com/M800" + media_mid + ".mp3?vkey=" + key + "&guid=" + v + "&fromtag=50";
+        String[] split = media_mid.split(":");
+        String prefix = "";
+        String suffix = "";
+        if ("flac".equals(split[1])) {
+            prefix = "F0";
+            suffix = "flac";
+        } else if ("ape".equals(split[0])) {
+            prefix = "A0";
+            suffix = "ape";
+        }else if ("320".equals(split[0])) {
+            prefix = "M8";
+            suffix = "mp3";
+        } else if("128".equals(split[0])) {
+            prefix = "M5";
+            suffix = "mp3";
+        } else {
+            return null;
+        }
+        String uin = "1008611";
+        String guid = "1234567890";
+        String url = "http://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=0&loginUin="+uin+"&hostUin=0&format=json&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&cid=205361747&uin="+uin+"&songmid=003a1tne1nSz1Y&filename=C400003a1tne1nSz1Y.m4a&guid="+guid;
+        QQMusicVkey qqMusicVkey = OkHttpUtils.getRequest(url, RequestHeaders.tencentHeaders, null, QQMusicVkey.class);
+        return "http://streamoc.music.tc.qq.com/"+prefix+"00"+split[0]+"."+suffix+"?vkey="+qqMusicVkey.getData().getItems().get(0).getVkey()+"&guid=1234567890&uin=1008611&fromtag=8";
     }
 
     /**
