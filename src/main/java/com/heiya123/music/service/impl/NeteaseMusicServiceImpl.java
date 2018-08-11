@@ -16,6 +16,7 @@ import com.heiya123.music.service.NeteaseMusicService;
 import com.heiya123.music.util.CommonUtils;
 import com.heiya123.music.util.NeteaseEncryption;
 import com.heiya123.music.util.OkHttpUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -82,7 +83,9 @@ public class NeteaseMusicServiceImpl implements NeteaseMusicService {
         return CommonUtils.jsonp2Json(OkHttpUtils.getRequest(url, RequestHeaders.neteaseHeaders));
     }
 
-    /* 加载用户歌单
+    /**
+     * 加载用户歌单
+     *
      * @param uid
      * @return
      */
@@ -101,8 +104,8 @@ public class NeteaseMusicServiceImpl implements NeteaseMusicService {
     @Override
     public String loadMusicUrl(String id) {
         Map<String, String> map = new HashMap<>();
-        map.put("ids","[" + id + "]");
-        map.put("br","320000");
+        map.put("ids", "[" + id + "]");
+        map.put("br", "999000");
         String data = JSON.toJSONString(map);
         Map<String, String> params = NeteaseEncryption.encrypt(data);
         String url = "http://music.163.com/weapi/song/enhance/player/url?csrf_token=";
@@ -136,7 +139,7 @@ public class NeteaseMusicServiceImpl implements NeteaseMusicService {
     public String loadLyric(String id) {
         String lrc = "";
         String url = "https://music.163.com/api/song/lyric?os=pc&id=" + id + "&lv=-1&kv=-1&tv=-1";
-        NeteaseMusicLyr neteaseMusicLyr = OkHttpUtils.getRequest(url, RequestHeaders.neteaseHeaders,null,NeteaseMusicLyr.class);
+        NeteaseMusicLyr neteaseMusicLyr = OkHttpUtils.getRequest(url, RequestHeaders.neteaseHeaders, null, NeteaseMusicLyr.class);
         if (neteaseMusicLyr != null && neteaseMusicLyr.getLrc() != null) {
             lrc = neteaseMusicLyr.getLrc().getLyric();
         }

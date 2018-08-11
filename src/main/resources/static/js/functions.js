@@ -169,7 +169,7 @@ $(function(){
                     ,shade: 0.6 //遮罩透明度
                     ,anim: 0 //0-6的动画形式，-1不开启
                     ,content: 
-                    '1、首先<a href="http://music.163.com/" target="_blank">点我(http://music.163.com/)</a>打开网易云音乐官网<br>' +
+                    '1、首先<a href="https://music.163.com/" target="_blank">点我(https://music.163.com/)</a>打开网易云音乐官网<br>' +
                     '2、然后点击页面右上角的“登录”，登录您的账号<br>' + 
                     '3、点击您的头像，进入个人中心<br>' + 
                     '4、此时<span style="color:red">浏览器地址栏</span> <span style="color: green">/user/home?id=</span> 后面的<span style="color:red">数字</span>就是您的网易云 UID'

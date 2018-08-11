@@ -1,5 +1,7 @@
 package com.heiya123.music.common;
 
+import org.apache.commons.lang.RandomStringUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +18,7 @@ public class RequestHeaders {
         neteaseHeaders.put("Referer", "http://music.163.com");
         neteaseHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
         neteaseHeaders.put("Content-Type", "application/x-www-form-urlencoded");
+        neteaseHeaders.put("Cookie", getNeteaseCookie());
 
         //设置QQ音乐的请求头
         tencentHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
@@ -31,5 +34,11 @@ public class RequestHeaders {
         xiamiHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
         xiamiHeaders.put("Referer", "http://h.xiami.com/");
         xiamiHeaders.put("Cookie", "user_from=2;XMPLAYER_addSongsToggler=0;XMPLAYER_isOpen=0;_xiamitoken=123456789;");
+    }
+
+    public static String getNeteaseCookie() {
+        String jsessionid = RandomStringUtils.random(176,"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKMNOPQRSTUVWXYZ\\/+") + ":" + System.currentTimeMillis();
+        String nuid = RandomStringUtils.random(32,"0123456789abcdefghijklmnopqrstuvwxyz");
+        return "JSESSIONID-WYYY=" + jsessionid + "; _iuqxldmzr_=32; _ntes_nnid="+nuid+","+System.currentTimeMillis()+"; _ntes_nuid="+nuid;
     }
 }

@@ -45,7 +45,7 @@ public class KgServiceImpl implements KgService {
         Matcher matcher = Pattern.compile(regex).matcher(rsp);
         while (matcher.find()) {
             KegeUrl kegeUrl = JSON.parseObject(CommonUtils.jsonp2Json(matcher.group(1)), KegeUrl.class);
-            return kegeUrl.getShare().getData_url();
+            return kegeUrl.getDetail().getPlayurl();
         }
         return null;
     }
