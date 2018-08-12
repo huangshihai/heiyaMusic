@@ -248,7 +248,7 @@ function playList(id) {
 // 初始化 Audio
 function initAudio() {
     rem.audio = $('<audio></audio>').appendTo('body');
-
+    rem.errCount = 0
     // 应用初始音量
     rem.audio[0].volume = volume_bar.percent;
     // 绑定歌曲进度变化事件
@@ -306,6 +306,7 @@ function play(music) {
     changeCover(music);    // 更新封面展示
     ajaxLyric(music, lyricCallback);     // ajax加载歌词
     music_bar.lock(false);  // 取消进度条锁定
+    rem.errCount = 0
 }
 
 

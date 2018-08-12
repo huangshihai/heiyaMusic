@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class NeteaseMusicServiceImpl implements NeteaseMusicService {
@@ -60,11 +62,11 @@ public class NeteaseMusicServiceImpl implements NeteaseMusicService {
             }
             music.setArtist(artist);
             music.setAlbum(song.getAlbum().getName());
-            String songId = song.getId() + "";
+            String songId = song.getDuration() + "";
             music.setPic_id(songId);
             music.setId(songId);
             music.setUrl_id(songId);
-            music.setLyric_id(songId);
+            music.setLyric_id(song.getId()+"");
             music.setSource(MusicSourceEnum.NeteaseMusic.getSource());
             list.add(music);
         }
@@ -103,12 +105,16 @@ public class NeteaseMusicServiceImpl implements NeteaseMusicService {
      */
     @Override
     public String loadMusicUrl(String id) {
+        String cookie = RequestHeaders.getNeteaseCookie();
+        RequestHeaders.neteaseHeaders.put("Cookie", cookie);
+        RequestHeaders.neteaseHeaders.put("User-Agent", RequestHeaders.randomUserAgent());
         Map<String, String> map = new HashMap<>();
         map.put("ids", "[" + id + "]");
         map.put("br", "999000");
+        map.put("csrf_token", "");
         String data = JSON.toJSONString(map);
         Map<String, String> params = NeteaseEncryption.encrypt(data);
-        String url = "http://music.163.com/weapi/song/enhance/player/url?csrf_token=";
+        String url = "http://music.163.com/weapi/song/enhance/player/url";
         NeteaseMusicUrl neteaseMusicUrl = OkHttpUtils.postRequest(url, RequestHeaders.neteaseHeaders, params, NeteaseMusicUrl.class);
         if (neteaseMusicUrl.getData().get(0).getCode() == 200) {
             return neteaseMusicUrl.getData().get(0).getUrl() == null ? "" : neteaseMusicUrl.getData().get(0).getUrl();
