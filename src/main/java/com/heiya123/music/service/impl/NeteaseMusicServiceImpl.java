@@ -105,18 +105,18 @@ public class NeteaseMusicServiceImpl implements NeteaseMusicService {
      */
     @Override
     public String loadMusicUrl(String id) {
-        String cookie = RequestHeaders.getNeteaseCookie();
-        RequestHeaders.neteaseHeaders.put("Cookie", cookie);
         RequestHeaders.neteaseHeaders.put("User-Agent", RequestHeaders.randomUserAgent());
+        RequestHeaders.neteaseHeaders.put("Cookie", RequestHeaders.getNeteaseCookie());
         Map<String, String> map = new HashMap<>();
         map.put("ids", "[" + id + "]");
-        map.put("br", "999000");
-        map.put("csrf_token", "");
+        map.put("br", "320000");
         String data = JSON.toJSONString(map);
         Map<String, String> params = NeteaseEncryption.encrypt(data);
-        String url = "http://music.163.com/weapi/song/enhance/player/url";
+        String url = "http://music.163.com/weapi/song/enhance/player/url?csrf_token=";
+        logger.info("网易云音乐的请求头信息:{}",JSON.toJSONString(RequestHeaders.neteaseHeaders));
         NeteaseMusicUrl neteaseMusicUrl = OkHttpUtils.postRequest(url, RequestHeaders.neteaseHeaders, params, NeteaseMusicUrl.class);
-        if (neteaseMusicUrl.getData().get(0).getCode() == 200) {
+        logger.info("网易云歌曲{}的链接信息为{}",id,JSON.toJSONString(neteaseMusicUrl));
+        if (neteaseMusicUrl.getCode() != -460) {
             return neteaseMusicUrl.getData().get(0).getUrl() == null ? "" : neteaseMusicUrl.getData().get(0).getUrl();
         }
         return "";

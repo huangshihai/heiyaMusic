@@ -42,7 +42,7 @@ public class RequestHeaders {
         neteaseHeaders.put("Host", "music.163.com");
         neteaseHeaders.put("Origin", "http://music.163.com");
         neteaseHeaders.put("Referer", "http://music.163.com");
-        neteaseHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
+        neteaseHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36");
 
         //设置QQ音乐的请求头
         tencentHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
