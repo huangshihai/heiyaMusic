@@ -1,12 +1,11 @@
 package com.heiya123.music.service.impl;
 
 import com.heiya123.music.common.RequestHeaders;
-import com.heiya123.music.entity.*;
+import com.heiya123.music.entity.Music;
 import com.heiya123.music.entity.QQ.QQLyr;
 import com.heiya123.music.entity.QQ.QQMusicBase;
 import com.heiya123.music.entity.QQ.QQMusicBase.DataBean.SongBean.ListBean;
 import com.heiya123.music.entity.QQ.QQMusicBase.DataBean.SongBean.ListBean.SingerBean;
-import com.heiya123.music.entity.QQ.QQMusicUrl;
 import com.heiya123.music.entity.QQ.QQMusicVkey;
 import com.heiya123.music.entity.vo.SearchRequestVo;
 import com.heiya123.music.musicEnum.MusicSourceEnum;
@@ -15,13 +14,9 @@ import com.heiya123.music.util.OkHttpUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Base64Utils;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
-import java.util.Random;
 
 @Service
 public class QQMusicServiceImpl implements QQMusicService {

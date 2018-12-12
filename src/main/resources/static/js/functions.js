@@ -388,30 +388,27 @@ function downloadMusic(music) {
  * http://www.cnblogs.com/liuxianan/p/js-download.html
  */
 function openDownloadDialog(url, saveName) {
-  if(typeof url == 'object' && url instanceof Blob){
+    if(typeof url == 'object' && url instanceof Blob){
       url = URL.createObjectURL(url); // 创建blob地址
-  }
-  var xmlHttp = null;
-  if (window.ActiveXObject) {
-    // IE6, IE5 浏览器执行代码
-    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-  } else if (window.XMLHttpRequest) {
-    // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-    xmlHttp = new XMLHttpRequest();
-  }
-  //2.如果实例化成功，就调用open（）方法：
-  if (xmlHttp != null) {
+    }
+    var xmlHttp = new XMLHttpRequest();;
+    //2.如果实例化成功，就调用open（）方法：
+    if (xmlHttp != null) {
     xmlHttp.open("get", url, true);
     xmlHttp.responseType = 'blob'
     xmlHttp.onload = function (e) {
       var index = url.lastIndexOf(".")
       if(index !== -1) {
-        saveName += url.substring(index)
+        var ext = url.substring(index)
+        if(ext.length > 5) {
+            ext = ext.substring(0,5)
+        }
+        saveName += ext
       }
       download(xmlHttp.response, saveName);
     }; //设置回调函数
     xmlHttp.send();
-  }
+    }
 }
 
 // 获取外链的ajax回调函数
