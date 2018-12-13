@@ -689,6 +689,7 @@ body {
     left: 90%;
     margin-top: -10px;
 }
+
 /* 音乐进度条区域 */
 .progress {
     width: auto;
@@ -696,6 +697,17 @@ body {
     margin-right: 200px;
     height: 100%;
     position: relative;
+}
+
+/** 音乐时间区域 */
+.music-time-box {
+    position: absolute;
+    height: 20px;
+    right: 10px;
+    top: 25%;
+    margin-top: -5px;
+    color: #dfdbdd;
+    cursor:text;
 }
 
 /* 限制进度条的盒子 */

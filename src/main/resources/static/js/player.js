@@ -16,7 +16,7 @@ var mkPlayer = {
     dotshine: true,    // 是否开启播放进度条的小点闪动效果[不支持IE](true/false) *开启后会有些卡
     mdotshine: false,   // 是否开启[移动端]播放进度条的小点闪动效果[不支持IE](true/false)
     volume: 0.6,        // 默认音量值(0~1之间)
-    version: "v2.32",    // 播放器当前版本号(仅供调试)
+    version: "v4.1",    // 播放器当前版本号(仅供调试)
     debug: false   // 是否开启调试模式(true/false)
 };
 
@@ -155,8 +155,26 @@ function updateProgress() {
     if (rem.paused !== false) return true;
     // 同步进度条
     music_bar.goto(rem.audio[0].currentTime / rem.audio[0].duration);
-    // 同步歌词显示	
+    if (!isNaN(rem.audio[0].duration)) {
+        $('#music-time').html(formatTime(rem.audio[0].currentTime) + " / " +formatTime(rem.audio[0].duration))
+    }
+    // 同步歌词显示
     scrollLyric(rem.audio[0].currentTime);
+}
+
+function formatTime(duration) {
+    var format_time = ''
+    if(!isNaN(duration)) {
+      var hour = Math.floor (duration / 3600);
+      var other = duration % 3600;
+      var minute = Math.floor (duration / 60);
+      var second = Math.floor(other % 60);
+      if(hour > 0) {
+        format_time += (hour < 10 ? '0' + hour : hour) + ":"
+      }
+      format_time += (minute < 10 ? '0' + minute : minute)   + ":" + (second < 10 ? '0' + second : second)
+    }
+    return format_time
 }
 
 // 显示的列表中的某一项点击后的处理函数
@@ -297,7 +315,9 @@ function play(music) {
     try {
         rem.audio[0].pause();
         rem.audio.attr('src', music.url);
-        rem.audio[0].play();
+        setTimeout(function () {
+          rem.audio[0].play();
+        },500)
     } catch (e) {
         audioErr(); // 调用错误处理函数
         return;
@@ -319,6 +339,7 @@ function mBcallback(newVal) {
     var newTime = rem.audio[0].duration * newVal;
     // 应用新的进度
     rem.audio[0].currentTime = newTime;
+    $('#music-time').html(formatTime(rem.audio[0].currentTime) + " / " + formatTime(rem.audio[0].duration))
     refreshLyric(newTime);  // 强制滚动歌词到当前进度
 }
 
