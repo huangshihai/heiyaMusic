@@ -1,4 +1,4 @@
-package com.heiya123.music.entity.netease;
+package com.heiya123.music.vo.netease;
 
 public class NeteaseMusicLyr {
 

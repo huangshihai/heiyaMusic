@@ -1,8 +1,8 @@
-package com.heiya123.music.entity.kege;
+package com.heiya123.music.vo.qmkg;
 
 import java.util.List;
 
-public class KegeUrl {
+public class QmkgUrl {
     private DetailBean detail;
     private DownloadConfigBean downloadConfig;
     private boolean isMV;

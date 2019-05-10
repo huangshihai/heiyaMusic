@@ -1,10 +1,10 @@
-package com.heiya123.music.entity.kege;
+package com.heiya123.music.vo.qmkg;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
 import java.util.List;
 
-public class KegeMusic {
+public class QmkgMusic {
 
     /**
      * code : 0

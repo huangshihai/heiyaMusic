@@ -8,7 +8,7 @@
     <meta name="author" content="mengkun">
     <meta name="generator" content="KodCloud">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    
+
     <!-- 强制移动设备以app模式打开页面(即在移动设备下全屏，仅支持部分浏览器) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -17,31 +17,31 @@
     <meta name="browsermode" content="application"><!--UC应用模式-->
     <meta name="x5-fullscreen" content="true"><!--QQ强制全屏-->
     <meta name="x5-page-mode" content="app"><!--QQ应用模式-->
-    
+
     <title>嘿呀音乐</title>
     <meta name="description" content="一款开源的基于网易云音乐api的在线音乐播放器。具有音乐搜索、播放、下载、歌词同步显示、个人音乐播放列表同步等功能。"/>
     <meta name="keywords" content="嘿呀音乐播放器,在线音乐播放器,网易云音乐,音乐api,音乐播放器源代码"/>
-    
+
     <!-- 不支持IE8及以下版本浏览器 -->
     <!--[if lte IE 8]>
         <script>window.location.href="plugns/killie/"</script>
-    <![endif]--> 
-    
+    <![endif]-->
+
     <!-- favicon图标 -->
     <link rel="shortcut icon" href="images/favicon.ico">
-    
+
     <!-- jQuery文件 -->
     <script src="js/jquery.min.js"></script>
-    
+
     <!-- 播放器样式表文件 -->
     <link rel="stylesheet" type="text/css" href="css/player.css">
-    
+
     <!-- 小屏幕样式修复 -->
     <link rel="stylesheet" type="text/css" href="css/small.css">
-    
+
     <!-- 滚动条美化样式文件 -->
     <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css">
-    
+
     <!-- layer弹窗插件样式文件 -->
     <link rel="stylesheet" href="plugns/layer/skin/default/layer.css?v=3.0.2302" id="layuicss-skinlayercss">
 </head>
@@ -68,7 +68,7 @@
                 <span class="btn" data-action="search" title="点击搜索音乐">歌曲搜索</span>
             </div>
         </div>  <!--class="btn-bar"-->
-        
+
         <div class="data-area">
             <!--歌曲歌单-->
             <div id="sheet" class="data-box" hidden></div>
@@ -76,7 +76,7 @@
             <!--音乐播放列表-->
             <div id="main-list" class="music-list data-box"></div>
         </div>  <!--class="data-area"-->
-        
+
         <!-- 右侧封面及歌词展示 -->
         <div class="player" id="player">
             <!--歌曲封面-->
@@ -101,23 +101,23 @@
             <a href="javascript:;" class="player-btn btn-next" title="下一首"></a>
             <a href="javascript:;" class="player-btn btn-order" title="循环控制"></a>
         </div>  <!--class="con-btn"-->
-        
+
         <div class="vol">
             <div class="quiet">
                 <a href="javascript:;" class="player-btn btn-quiet" title="静音"></a>
             </div>
             <div class="volume">
-                <div class="volume-box">  
+                <div class="volume-box">
                     <div id="volume-progress" class="mkpgb-area"></div>
                 </div>
             </div>
         </div>  <!--class="footer"-->
-        
+
         <div class="progress">
             <div class="music-time-box">
                 <div id="music-time" class="mkpgb-area"></div>
             </div>
-            <div class="progress-box">  
+            <div class="progress-box">
                 <div id="music-progress" class="mkpgb-area"></div>
             </div>
         </div>  <!--class="progress"-->
@@ -134,7 +134,7 @@
 <script src="js/lyric.js"></script>
 
 <!-- 音乐列表配置 -->
-<script src="js/musicList.js"></script>
+<script src="js/musicSheet.js"></script>
 
 <!-- 下载插件 -->
 <script src="js/download.js"></script>

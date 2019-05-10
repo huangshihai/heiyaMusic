@@ -1,4 +1,4 @@
-package com.heiya123.music.entity.QQ;
+package com.heiya123.music.vo.QQ;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.heiya123.music.entity.kege;
+package com.heiya123.music.vo.qmkg;
 
-public class KegeProperties {
+public class QmkgProperties {
     private String id;
     private String singer;
     private String title;

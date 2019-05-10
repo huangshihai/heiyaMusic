@@ -1,6 +1,4 @@
-package com.heiya123.music.entity.kugou;
-
-import com.alibaba.fastjson.annotation.JSONField;
+package com.heiya123.music.vo.kugou;
 
 import java.io.Serializable;
 import java.util.List;

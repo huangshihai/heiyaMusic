@@ -7,11 +7,11 @@ import java.util.Map;
 import java.util.Random;
 
 public class RequestHeaders {
-    public static Map<String, String> neteaseHeaders = new HashMap<>();
-    public static Map<String, String> tencentHeaders = new HashMap<>();
-    public static Map<String, String> kugouHeaders = new HashMap<>();
-    public static Map<String, String> xiamiHeaders = new HashMap<>();
-    public static final String[] userAgentList = {
+    public static Map<String, String> NETEASEHEADERS = new HashMap<>();
+    public static Map<String, String> TENCENTHEADERS = new HashMap<>();
+    public static Map<String, String> KUGOUHEADERS = new HashMap<>();
+    public static Map<String, String> XIAMIHEADERS = new HashMap<>();
+    private static final String[] userAgentList = {
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36",
             "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1",
             "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1",
@@ -36,28 +36,28 @@ public class RequestHeaders {
 
     static {
         //设置网易云音乐的请求头
-        neteaseHeaders.put("Accept", "*/*");
-        neteaseHeaders.put("Accept-Language", "zh-CN,zh;q=0.8,gl;q=0.6,zh-TW;q=0.4");
-        neteaseHeaders.put("Content-Type", "application/x-www-form-urlencoded");
-        neteaseHeaders.put("Host", "music.163.com");
-        neteaseHeaders.put("Origin", "http://music.163.com");
-        neteaseHeaders.put("Referer", "http://music.163.com");
-        neteaseHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36");
+        NETEASEHEADERS.put("Accept", "*/*");
+        NETEASEHEADERS.put("Accept-Language", "zh-CN,zh;q=0.8,gl;q=0.6,zh-TW;q=0.4");
+        NETEASEHEADERS.put("Content-Type", "application/x-www-form-urlencoded");
+        NETEASEHEADERS.put("Host", "music.163.com");
+        NETEASEHEADERS.put("Origin", "http://music.163.com");
+        NETEASEHEADERS.put("Referer", "http://music.163.com");
+        NETEASEHEADERS.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36");
 
         //设置QQ音乐的请求头
-        tencentHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
-        tencentHeaders.put("Referer", "https://y.qq.com/portal/player.html");
-        tencentHeaders.put("Cookie", "tvfe_boss_uuid=c3db0dcc4d677c60; pac_uid=1_2728578956; qq_slist_autoplay=on; ts_refer=ADTAGh5_playsong; RK=pKOOKi2f1O; pgv_pvi=8927113216; o_cookie=2728578956; pgv_pvid=5107924810; ptui_loginuin=2728578956; ptcz=897c17d7e17ae9009e018ebf3f818355147a3a26c6c67a63ae949e24758baa2d; pt2gguin=o2728578956; pgv_si=s5715204096; qqmusic_fromtag=66; yplayer_open=1; ts_last=y.qq.com/portal/player.html; ts_uid=996779984; yq_index=0");
+        TENCENTHEADERS.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
+        TENCENTHEADERS.put("Referer", "https://y.qq.com/portal/player.html");
+        TENCENTHEADERS.put("Cookie", "tvfe_boss_uuid=c3db0dcc4d677c60; pac_uid=1_2728578956; qq_slist_autoplay=on; ts_refer=ADTAGh5_playsong; RK=pKOOKi2f1O; pgv_pvi=8927113216; o_cookie=2728578956; pgv_pvid=5107924810; ptui_loginuin=2728578956; ptcz=897c17d7e17ae9009e018ebf3f818355147a3a26c6c67a63ae949e24758baa2d; pt2gguin=o2728578956; pgv_si=s5715204096; qqmusic_fromtag=66; yplayer_open=1; ts_last=y.qq.com/portal/player.html; ts_uid=996779984; yq_index=0");
 
         //设置酷狗音乐的请求头
-        kugouHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
-        kugouHeaders.put("Referer", "http://www.kugou.com/webkugouplayer/flash/webKugou.swf");
-        kugouHeaders.put("Cookie", "_WCMID=123456789");
+        KUGOUHEADERS.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
+        KUGOUHEADERS.put("Referer", "http://www.kugou.com/webkugouplayer/flash/webKugou.swf");
+        KUGOUHEADERS.put("Cookie", "_WCMID=123456789");
 
         //设置虾米音乐的请求头
-        xiamiHeaders.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
-        xiamiHeaders.put("Referer", "http://h.xiami.com/");
-        xiamiHeaders.put("Cookie", "user_from=2;XMPLAYER_addSongsToggler=0;XMPLAYER_isOpen=0;_xiamitoken=123456789;");
+        XIAMIHEADERS.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
+        XIAMIHEADERS.put("Referer", "http://h.xiami.com/");
+        XIAMIHEADERS.put("Cookie", "user_from=2;XMPLAYER_addSongsToggler=0;XMPLAYER_isOpen=0;_xiamitoken=123456789;");
     }
 
     public static String getNeteaseCookie() {

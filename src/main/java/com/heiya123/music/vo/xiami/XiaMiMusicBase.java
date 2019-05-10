@@ -1,4 +1,4 @@
-package com.heiya123.music.entity.xiami;
+package com.heiya123.music.vo.xiami;
 
 import java.io.Serializable;
 import java.util.List;
