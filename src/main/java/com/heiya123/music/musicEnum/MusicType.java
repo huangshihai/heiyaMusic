@@ -13,8 +13,7 @@ public enum MusicType {
   NETEASE("NeteaseMusic", "网易云音乐", 2),
   KUGOU("KugouMusic", "酷狗音乐", 3),
   XIAMI("XiamiMusic", "虾米音乐", 4),
-  QMKG("QmkgMusic", "全民K歌", 5),
-  BAIDU_FLAC("BaiduFlacMusic", "百度无损音乐", 6);
+  BAIDU("BaiduMusic", "百度音乐", 5);
 
   private final String name;
   private final String describe;

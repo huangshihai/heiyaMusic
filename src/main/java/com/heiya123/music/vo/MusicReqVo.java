@@ -10,5 +10,5 @@ import lombok.Setter;
 public class MusicReqVo extends CommonListReqVo {
 
   private String name;
-  private MusicType type;
+  private int type;
 }

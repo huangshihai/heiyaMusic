@@ -11,6 +11,7 @@ public class RequestHeaders {
     public static Map<String, String> TENCENTHEADERS = new HashMap<>();
     public static Map<String, String> KUGOUHEADERS = new HashMap<>();
     public static Map<String, String> XIAMIHEADERS = new HashMap<>();
+    public static Map<String, String> BAIDUHEADERS = new HashMap<>();
     private static final String[] userAgentList = {
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36",
             "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1",
@@ -58,6 +59,10 @@ public class RequestHeaders {
         XIAMIHEADERS.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
         XIAMIHEADERS.put("Referer", "http://h.xiami.com/");
         XIAMIHEADERS.put("Cookie", "user_from=2;XMPLAYER_addSongsToggler=0;XMPLAYER_isOpen=0;_xiamitoken=123456789;");
+
+        //设置百度音乐的请求头
+        BAIDUHEADERS.put("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
+        BAIDUHEADERS.put("Referer", "http://music.baidu.com/");
     }
 
     public static String getNeteaseCookie() {

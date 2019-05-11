@@ -1,5 +1,7 @@
 server:
   port: 8888
+  servlet:
+    context-path: /api
   tomcat:
     uri-encoding: UTF-8
 spring:
@@ -12,23 +14,3 @@ spring:
 logging:
   level:
     com.heiya123.music: debug
-qmkg:
-  userAttr:
-    619f94812d2e328e32:
-      id: 619f94812d2e328e32
-      singer: 赖琼芳
-      title: 声沙
-      album: 声沙
-      cover: https://shp.qlogo.cn/ttsing/329483556/329483556/100?ts=0
-    63999887222f3f8235:
-      id: 63999887222f3f8235
-      singer: 赖琼芳
-      title: 旧歌单
-      album: 旧歌单
-      cover: https://shp.qlogo.cn/ttsing/145272891/145272891/100?ts=0
-    659c9f85222935883d:
-      id: 659c9f85222935883d
-      singer: 谭礼珠
-      title: 谭礼珠的全民K歌
-      album: 谭礼珠的全民K歌
-      cover: https://shp.qlogo.cn/ttsing/712074239/712074239/100?ts=0

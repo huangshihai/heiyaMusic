@@ -66,7 +66,7 @@ public class KuGouMusicServiceImpl implements MusicService {
    * 获取歌曲链接
    */
   @Override
-  public String getMusicUrl(String hash) {
+  public String getMusicUrl(String hash, String bit) {
     String url = String
         .format(MusicConstant.KUGOUMUSIC_URL, hash, CommonUtils.getMD5(hash + "kgcloudv2"));
     KuGouMusicUrl kuGouMusic = OkHttpUtils

@@ -87,7 +87,7 @@ public class NeteaseMusicServiceImpl implements MusicService {
    * 获取歌曲链接
    */
   @Override
-  public String getMusicUrl(String id) {
+  public String getMusicUrl(String id, String bit) {
     RequestHeaders.NETEASEHEADERS.put("User-Agent", RequestHeaders.randomUserAgent());
     RequestHeaders.NETEASEHEADERS.put("Cookie", RequestHeaders.getNeteaseCookie());
     Map<String, String> map = new HashMap<>();
