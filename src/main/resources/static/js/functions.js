@@ -391,23 +391,27 @@ function openDownloadDialog(url, saveName) {
     if(typeof url == 'object' && url instanceof Blob){
       url = URL.createObjectURL(url); // 创建blob地址
     }
+    if (url.indexOf('http://dl.stream.qqmusic.qq.com') !== -1) {
+        url = url.replace('http://dl.stream.qqmusic.qq.com', '/api/qq')
+    }
     var xmlHttp = new XMLHttpRequest();;
     //2.如果实例化成功，就调用open（）方法：
     if (xmlHttp != null) {
-    xmlHttp.open("get", url, true);
-    xmlHttp.responseType = 'blob'
-    xmlHttp.onload = function (e) {
-      var index = url.lastIndexOf(".")
-      if(index !== -1) {
-        var ext = url.substring(index)
-        if(ext.length > 5) {
-            ext = ext.substring(0,5)
-        }
-        saveName += ext
-      }
-      download(xmlHttp.response, saveName);
-    }; //设置回调函数
-    xmlHttp.send();
+        xmlHttp.open("get", url, true);
+        xmlHttp.responseType = 'blob'
+        xmlHttp.onload = function (e) {
+          var index = url.lastIndexOf(".")
+          if(index !== -1) {
+            var ext = url.substring(index)
+            if(ext.length > 5) {
+                ext = ext.substring(0,5)
+                ext = ext.replace(/[^\da-zA-Z]/g, '')
+            }
+            saveName = saveName + '.' + ext
+          }
+          download(xmlHttp.response, saveName);
+        }; //设置回调函数
+        xmlHttp.send();
     }
 }
 

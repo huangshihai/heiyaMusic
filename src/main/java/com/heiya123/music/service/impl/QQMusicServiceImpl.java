@@ -96,11 +96,13 @@ public class QQMusicServiceImpl implements QQMusicService {
         } else {
             return null;
         }
+        prefix = "M5";
+        suffix = "mp3";
         String uin = "1008611";
         String guid = "1234567890";
         String url = "http://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=0&loginUin="+uin+"&hostUin=0&format=json&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&cid=205361747&uin="+uin+"&songmid=003a1tne1nSz1Y&filename=C400003a1tne1nSz1Y.m4a&guid="+guid;
         QQMusicVkey qqMusicVkey = OkHttpUtils.getRequest(url, RequestHeaders.tencentHeaders, null, QQMusicVkey.class);
-        return "http://streamoc.music.tc.qq.com/"+prefix+"00"+split[0]+"."+suffix+"?vkey="+qqMusicVkey.getData().getItems().get(0).getVkey()+"&guid=1234567890&uin=1008611&fromtag=8";
+        return "http://dl.stream.qqmusic.qq.com/"+prefix+"00"+split[0]+"."+suffix+"?vkey="+qqMusicVkey.getData().getItems().get(0).getVkey()+"&guid=1234567890&uin=1008611&fromtag=8";
     }
 
     /**
