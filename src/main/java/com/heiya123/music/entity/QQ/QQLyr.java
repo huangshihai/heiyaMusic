@@ -1,49 +1,72 @@
 package com.heiya123.music.entity.QQ;
 
 public class QQLyr {
-    private int code;
-    private String lyric;
-    private int retcode;
-    private int subcode;
-    private String trans;
 
-    public int getCode() {
-        return code;
+    private int result;
+    private DataBean data;
+
+    public int getResult() {
+        return result;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setResult(int result) {
+        this.result = result;
     }
 
-    public String getLyric() {
-        return lyric;
+    public DataBean getData() {
+        return data;
     }
 
-    public void setLyric(String lyric) {
-        this.lyric = lyric;
+    public void setData(DataBean data) {
+        this.data = data;
     }
 
-    public int getRetcode() {
-        return retcode;
-    }
+    public static class DataBean {
 
-    public void setRetcode(int retcode) {
-        this.retcode = retcode;
-    }
+        private int retcode;
+        private int code;
+        private int subcode;
+        private String lyric;
+        private String trans;
 
-    public int getSubcode() {
-        return subcode;
-    }
+        public int getRetcode() {
+            return retcode;
+        }
 
-    public void setSubcode(int subcode) {
-        this.subcode = subcode;
-    }
+        public void setRetcode(int retcode) {
+            this.retcode = retcode;
+        }
 
-    public String getTrans() {
-        return trans;
-    }
+        public int getCode() {
+            return code;
+        }
 
-    public void setTrans(String trans) {
-        this.trans = trans;
+        public void setCode(int code) {
+            this.code = code;
+        }
+
+        public int getSubcode() {
+            return subcode;
+        }
+
+        public void setSubcode(int subcode) {
+            this.subcode = subcode;
+        }
+
+        public String getLyric() {
+            return lyric;
+        }
+
+        public void setLyric(String lyric) {
+            this.lyric = lyric;
+        }
+
+        public String getTrans() {
+            return trans;
+        }
+
+        public void setTrans(String trans) {
+            this.trans = trans;
+        }
     }
 }

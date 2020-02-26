@@ -5,16 +5,9 @@ import java.util.List;
 
 public class NeteaseMusicBase {
 
-    private int code;
+
     private ResultBean result;
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
+    private int code;
 
     public ResultBean getResult() {
         return result;
@@ -22,6 +15,14 @@ public class NeteaseMusicBase {
 
     public void setResult(ResultBean result) {
         this.result = result;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public static class ResultBean {
@@ -46,58 +47,21 @@ public class NeteaseMusicBase {
         }
 
         public static class SongsBean {
-            private AlbumBean album;
-            private int copyrightId;
-            private int duration;
-            private int fee;
-            private int ftype;
+
             private int id;
-            private int mvid;
             private String name;
-            private int rtype;
+            private AlbumBean album;
+            private int duration;
+            private int copyrightId;
             private int status;
-            private List<?> alias;
+            private int rtype;
+            private int ftype;
+            private int mvid;
+            private int fee;
+            private Object rUrl;
+            private String mark;
             private List<ArtistsBean> artists;
-
-            public AlbumBean getAlbum() {
-                return album;
-            }
-
-            public void setAlbum(AlbumBean album) {
-                this.album = album;
-            }
-
-            public int getCopyrightId() {
-                return copyrightId;
-            }
-
-            public void setCopyrightId(int copyrightId) {
-                this.copyrightId = copyrightId;
-            }
-
-            public int getDuration() {
-                return duration;
-            }
-
-            public void setDuration(int duration) {
-                this.duration = duration;
-            }
-
-            public int getFee() {
-                return fee;
-            }
-
-            public void setFee(int fee) {
-                this.fee = fee;
-            }
-
-            public int getFtype() {
-                return ftype;
-            }
-
-            public void setFtype(int ftype) {
-                this.ftype = ftype;
-            }
+            private List<?> alias;
 
             public int getId() {
                 return id;
@@ -105,14 +69,6 @@ public class NeteaseMusicBase {
 
             public void setId(int id) {
                 this.id = id;
-            }
-
-            public int getMvid() {
-                return mvid;
-            }
-
-            public void setMvid(int mvid) {
-                this.mvid = mvid;
             }
 
             public String getName() {
@@ -123,12 +79,28 @@ public class NeteaseMusicBase {
                 this.name = name;
             }
 
-            public int getRtype() {
-                return rtype;
+            public AlbumBean getAlbum() {
+                return album;
             }
 
-            public void setRtype(int rtype) {
-                this.rtype = rtype;
+            public void setAlbum(AlbumBean album) {
+                this.album = album;
+            }
+
+            public int getDuration() {
+                return duration;
+            }
+
+            public void setDuration(int duration) {
+                this.duration = duration;
+            }
+
+            public int getCopyrightId() {
+                return copyrightId;
+            }
+
+            public void setCopyrightId(int copyrightId) {
+                this.copyrightId = copyrightId;
             }
 
             public int getStatus() {
@@ -139,12 +111,52 @@ public class NeteaseMusicBase {
                 this.status = status;
             }
 
-            public List<?> getAlias() {
-                return alias;
+            public int getRtype() {
+                return rtype;
             }
 
-            public void setAlias(List<?> alias) {
-                this.alias = alias;
+            public void setRtype(int rtype) {
+                this.rtype = rtype;
+            }
+
+            public int getFtype() {
+                return ftype;
+            }
+
+            public void setFtype(int ftype) {
+                this.ftype = ftype;
+            }
+
+            public int getMvid() {
+                return mvid;
+            }
+
+            public void setMvid(int mvid) {
+                this.mvid = mvid;
+            }
+
+            public int getFee() {
+                return fee;
+            }
+
+            public void setFee(int fee) {
+                this.fee = fee;
+            }
+
+            public Object getRUrl() {
+                return rUrl;
+            }
+
+            public void setRUrl(Object rUrl) {
+                this.rUrl = rUrl;
+            }
+
+            public String getMark() {
+                return mark;
+            }
+
+            public void setMark(String mark) {
+                this.mark = mark;
             }
 
             public List<ArtistsBean> getArtists() {
@@ -155,32 +167,25 @@ public class NeteaseMusicBase {
                 this.artists = artists;
             }
 
+            public List<?> getAlias() {
+                return alias;
+            }
+
+            public void setAlias(List<?> alias) {
+                this.alias = alias;
+            }
+
             public static class AlbumBean {
 
-                private ArtistBean artist;
-                private int copyrightId;
                 private int id;
                 private String name;
-                private long picId;
+                private ArtistBean artist;
                 private long publishTime;
                 private int size;
+                private int copyrightId;
                 private int status;
-
-                public ArtistBean getArtist() {
-                    return artist;
-                }
-
-                public void setArtist(ArtistBean artist) {
-                    this.artist = artist;
-                }
-
-                public int getCopyrightId() {
-                    return copyrightId;
-                }
-
-                public void setCopyrightId(int copyrightId) {
-                    this.copyrightId = copyrightId;
-                }
+                private long picId;
+                private String mark;
 
                 public int getId() {
                     return id;
@@ -198,12 +203,12 @@ public class NeteaseMusicBase {
                     this.name = name;
                 }
 
-                public long getPicId() {
-                    return picId;
+                public ArtistBean getArtist() {
+                    return artist;
                 }
 
-                public void setPicId(long picId) {
-                    this.picId = picId;
+                public void setArtist(ArtistBean artist) {
+                    this.artist = artist;
                 }
 
                 public long getPublishTime() {
@@ -222,6 +227,14 @@ public class NeteaseMusicBase {
                     this.size = size;
                 }
 
+                public int getCopyrightId() {
+                    return copyrightId;
+                }
+
+                public void setCopyrightId(int copyrightId) {
+                    this.copyrightId = copyrightId;
+                }
+
                 public int getStatus() {
                     return status;
                 }
@@ -230,23 +243,33 @@ public class NeteaseMusicBase {
                     this.status = status;
                 }
 
+                public long getPicId() {
+                    return picId;
+                }
+
+                public void setPicId(long picId) {
+                    this.picId = picId;
+                }
+
+                public String getMark() {
+                    return mark;
+                }
+
+                public void setMark(String mark) {
+                    this.mark = mark;
+                }
+
                 public static class ArtistBean {
 
-                    private int albumSize;
                     private int id;
-                    private int img1v1;
-                    private String img1v1Url;
                     private String name;
+                    private Object picUrl;
+                    private int albumSize;
                     private int picId;
+                    private String img1v1Url;
+                    private int img1v1;
+                    private Object trans;
                     private List<?> alias;
-
-                    public int getAlbumSize() {
-                        return albumSize;
-                    }
-
-                    public void setAlbumSize(int albumSize) {
-                        this.albumSize = albumSize;
-                    }
 
                     public int getId() {
                         return id;
@@ -254,22 +277,6 @@ public class NeteaseMusicBase {
 
                     public void setId(int id) {
                         this.id = id;
-                    }
-
-                    public int getImg1v1() {
-                        return img1v1;
-                    }
-
-                    public void setImg1v1(int img1v1) {
-                        this.img1v1 = img1v1;
-                    }
-
-                    public String getImg1v1Url() {
-                        return img1v1Url;
-                    }
-
-                    public void setImg1v1Url(String img1v1Url) {
-                        this.img1v1Url = img1v1Url;
                     }
 
                     public String getName() {
@@ -280,12 +287,52 @@ public class NeteaseMusicBase {
                         this.name = name;
                     }
 
+                    public Object getPicUrl() {
+                        return picUrl;
+                    }
+
+                    public void setPicUrl(Object picUrl) {
+                        this.picUrl = picUrl;
+                    }
+
+                    public int getAlbumSize() {
+                        return albumSize;
+                    }
+
+                    public void setAlbumSize(int albumSize) {
+                        this.albumSize = albumSize;
+                    }
+
                     public int getPicId() {
                         return picId;
                     }
 
                     public void setPicId(int picId) {
                         this.picId = picId;
+                    }
+
+                    public String getImg1v1Url() {
+                        return img1v1Url;
+                    }
+
+                    public void setImg1v1Url(String img1v1Url) {
+                        this.img1v1Url = img1v1Url;
+                    }
+
+                    public int getImg1v1() {
+                        return img1v1;
+                    }
+
+                    public void setImg1v1(int img1v1) {
+                        this.img1v1 = img1v1;
+                    }
+
+                    public Object getTrans() {
+                        return trans;
+                    }
+
+                    public void setTrans(Object trans) {
+                        this.trans = trans;
                     }
 
                     public List<?> getAlias() {
@@ -300,30 +347,26 @@ public class NeteaseMusicBase {
 
             public static class ArtistsBean {
                 /**
-                 * albumSize : 0
+                 * id : 11127
+                 * name : Beyond
+                 * picUrl : null
                  * alias : []
-                 * id : 893259
-                 * img1v1 : 0
-                 * img1v1Url : http://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg
-                 * name : 金玟岐
+                 * albumSize : 0
                  * picId : 0
+                 * img1v1Url : https://p2.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg
+                 * img1v1 : 0
+                 * trans : null
                  */
 
-                private int albumSize;
                 private int id;
-                private int img1v1;
-                private String img1v1Url;
                 private String name;
+                private Object picUrl;
+                private int albumSize;
                 private int picId;
+                private String img1v1Url;
+                private int img1v1;
+                private Object trans;
                 private List<?> alias;
-
-                public int getAlbumSize() {
-                    return albumSize;
-                }
-
-                public void setAlbumSize(int albumSize) {
-                    this.albumSize = albumSize;
-                }
 
                 public int getId() {
                     return id;
@@ -331,22 +374,6 @@ public class NeteaseMusicBase {
 
                 public void setId(int id) {
                     this.id = id;
-                }
-
-                public int getImg1v1() {
-                    return img1v1;
-                }
-
-                public void setImg1v1(int img1v1) {
-                    this.img1v1 = img1v1;
-                }
-
-                public String getImg1v1Url() {
-                    return img1v1Url;
-                }
-
-                public void setImg1v1Url(String img1v1Url) {
-                    this.img1v1Url = img1v1Url;
                 }
 
                 public String getName() {
@@ -357,12 +384,52 @@ public class NeteaseMusicBase {
                     this.name = name;
                 }
 
+                public Object getPicUrl() {
+                    return picUrl;
+                }
+
+                public void setPicUrl(Object picUrl) {
+                    this.picUrl = picUrl;
+                }
+
+                public int getAlbumSize() {
+                    return albumSize;
+                }
+
+                public void setAlbumSize(int albumSize) {
+                    this.albumSize = albumSize;
+                }
+
                 public int getPicId() {
                     return picId;
                 }
 
                 public void setPicId(int picId) {
                     this.picId = picId;
+                }
+
+                public String getImg1v1Url() {
+                    return img1v1Url;
+                }
+
+                public void setImg1v1Url(String img1v1Url) {
+                    this.img1v1Url = img1v1Url;
+                }
+
+                public int getImg1v1() {
+                    return img1v1;
+                }
+
+                public void setImg1v1(int img1v1) {
+                    this.img1v1 = img1v1;
+                }
+
+                public Object getTrans() {
+                    return trans;
+                }
+
+                public void setTrans(Object trans) {
+                    this.trans = trans;
                 }
 
                 public List<?> getAlias() {

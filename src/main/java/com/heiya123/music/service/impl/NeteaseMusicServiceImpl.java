@@ -1,9 +1,8 @@
 package com.heiya123.music.service.impl;
 
 
-import com.alibaba.fastjson.JSON;
 import com.heiya123.music.common.RequestHeaders;
-import com.heiya123.music.entity.*;
+import com.heiya123.music.entity.Music;
 import com.heiya123.music.entity.netease.NeteaseMusicBase;
 import com.heiya123.music.entity.netease.NeteaseMusicBase.ResultBean.SongsBean;
 import com.heiya123.music.entity.netease.NeteaseMusicBase.ResultBean.SongsBean.ArtistsBean;
@@ -14,23 +13,18 @@ import com.heiya123.music.entity.vo.SearchRequestVo;
 import com.heiya123.music.musicEnum.MusicSourceEnum;
 import com.heiya123.music.service.NeteaseMusicService;
 import com.heiya123.music.util.CommonUtils;
-import com.heiya123.music.util.NeteaseEncryption;
 import com.heiya123.music.util.OkHttpUtils;
-import org.apache.commons.lang.RandomStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 public class NeteaseMusicServiceImpl implements NeteaseMusicService {
     private static Logger logger = LoggerFactory.getLogger(NeteaseMusicServiceImpl.class);
+    private static String domain = "http://musicapi.heiya123.com";
 
     /**
      * 分页获取歌曲
@@ -41,13 +35,10 @@ public class NeteaseMusicServiceImpl implements NeteaseMusicService {
     @Override
     public List<Music> findMusicByPage(SearchRequestVo req) {
         ArrayList<Music> list = new ArrayList<>();
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("s", req.getName());
-        params.put("limit", req.getPageSize() + "");
-        params.put("type", "1");
-        params.put("offset", (req.getPageIndex() - 1) * req.getPageSize() + "");
-        String url = "http://music.163.com/api/search/pc";
-        NeteaseMusicBase neteaseMusicBase = OkHttpUtils.postRequest(url, RequestHeaders.neteaseHeaders, params, NeteaseMusicBase.class);
+        String limit = String.valueOf(req.getPageSize());
+        String offset = String.valueOf((req.getPageIndex() - 1) * req.getPageSize());
+        String url = String.format("%s/search?keywords=%s&limit=%s&offset=%s", domain, req.getName(), limit, offset);
+        NeteaseMusicBase neteaseMusicBase = OkHttpUtils.getRequest(url, null, null, NeteaseMusicBase.class);
         List<SongsBean> songs = neteaseMusicBase.getResult().getSongs();
         for (SongsBean song : songs) {
             Music music = new Music();
@@ -62,11 +53,11 @@ public class NeteaseMusicServiceImpl implements NeteaseMusicService {
             }
             music.setArtist(artist);
             music.setAlbum(song.getAlbum().getName());
-            String songId = song.getDuration() + "";
-            music.setPic_id(songId);
+            String songId = song.getId() + "";
+            music.setPic_id(songId + ":" + song.getAlbum().getId());
             music.setId(songId);
             music.setUrl_id(songId);
-            music.setLyric_id(song.getId()+"");
+            music.setLyric_id(song.getId() + "");
             music.setSource(MusicSourceEnum.NeteaseMusic.getSource());
             list.add(music);
         }
@@ -105,21 +96,9 @@ public class NeteaseMusicServiceImpl implements NeteaseMusicService {
      */
     @Override
     public String loadMusicUrl(String id) {
-        RequestHeaders.neteaseHeaders.put("User-Agent", RequestHeaders.randomUserAgent());
-        RequestHeaders.neteaseHeaders.put("Cookie", RequestHeaders.getNeteaseCookie());
-        Map<String, String> map = new HashMap<>();
-        map.put("ids", "[" + id + "]");
-        map.put("br", "320000");
-        String data = JSON.toJSONString(map);
-        Map<String, String> params = NeteaseEncryption.encrypt(data);
-        String url = "http://music.163.com/weapi/song/enhance/player/url?csrf_token=";
-        logger.info("网易云音乐的请求头信息:{}",JSON.toJSONString(RequestHeaders.neteaseHeaders));
-        NeteaseMusicUrl neteaseMusicUrl = OkHttpUtils.postRequest(url, RequestHeaders.neteaseHeaders, params, NeteaseMusicUrl.class);
-        logger.info("网易云歌曲{}的链接信息为{}",id,JSON.toJSONString(neteaseMusicUrl));
-        if (neteaseMusicUrl.getCode() != -460) {
-            return neteaseMusicUrl.getData().get(0).getUrl() == null ? "" : neteaseMusicUrl.getData().get(0).getUrl();
-        }
-        return "";
+        String url = String.format("http://musicapi.heiya123.com/song/url?id=%s", id);
+        NeteaseMusicUrl neteaseMusicUrl = OkHttpUtils.postRequest(url, null, null, NeteaseMusicUrl.class);
+        return neteaseMusicUrl.getData().get(0).getUrl();
     }
 
     /**
@@ -130,9 +109,15 @@ public class NeteaseMusicServiceImpl implements NeteaseMusicService {
      */
     @Override
     public String loadPic(String id) {
-        String url = "http://music.163.com/api/song/detail/?" + id + "&ids=%5B" + id + "%5D";
-        NeteaseMusicPic neteaseMusicPic = OkHttpUtils.getRequest(url, RequestHeaders.neteaseHeaders, null, NeteaseMusicPic.class);
-        return neteaseMusicPic.getSongs().get(0).getAlbum().getPicUrl();
+        String[] split = id.split(":");
+        String url = String.format("%s/album?id=%s", domain, split[1]);
+        NeteaseMusicPic neteaseMusicPic = OkHttpUtils.getRequest(url, null, null, NeteaseMusicPic.class);
+        for (NeteaseMusicPic.SongsBean song : neteaseMusicPic.getSongs()) {
+            if (split[0].equals(String.valueOf(song.getId()))) {
+                return song.getAl().getPicUrl();
+            }
+        }
+        return null;
     }
 
     /**

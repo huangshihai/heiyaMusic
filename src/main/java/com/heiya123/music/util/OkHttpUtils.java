@@ -79,9 +79,7 @@ public class OkHttpUtils {
                 t = rspClass.newInstance();
                 t = JSON.parseObject(rsp, rspClass);
             }
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return t;
@@ -130,9 +128,7 @@ public class OkHttpUtils {
                 t = rspClass.newInstance();
                 t = JSON.parseObject(rsp, rspClass);
             }
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return t;

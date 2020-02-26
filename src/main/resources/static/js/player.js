@@ -153,6 +153,8 @@ function autoNextMusic() {
 function updateProgress() {
     // 暂停状态不管
     if (rem.paused !== false) return true;
+    // 正常播放状态，errCount置为0
+    if (rem.audio[0].currentTime > 0) rem.errCount = 0;
     // 同步进度条
     music_bar.goto(rem.audio[0].currentTime / rem.audio[0].duration);
     if (!isNaN(rem.audio[0].duration)) {
@@ -326,7 +328,6 @@ function play(music) {
     changeCover(music);    // 更新封面展示
     ajaxLyric(music, lyricCallback);     // ajax加载歌词
     music_bar.lock(false);  // 取消进度条锁定
-    rem.errCount = 0
 }
 
 
@@ -454,4 +455,4 @@ mkpgb.prototype = {
         }
         return true;
     }
-};  
+};
