@@ -316,7 +316,7 @@ function play(music) {
 
     try {
         rem.audio[0].pause();
-        rem.audio.attr('src', music.url);
+        rem.audio.attr('src', music.url.replace("http://122.226.161.16", "/api/qq"));
         setTimeout(function () {
           rem.audio[0].play();
         },500)

@@ -64,7 +64,6 @@ public class QQMusicServiceImpl implements QQMusicService {
             music.setLyric_id(song.getSongmid());
             /** 设置封面 */
             String albummid = song.getAlbummid();
-            music.setPic("http://i.gtimg.cn/music/photo/mid_album_500/" + albummid.substring(albummid.length() - 2, albummid.length() - 1) + "/" + albummid.substring(albummid.length() - 1) + "/" + albummid + ".jpg");
             music.setSource(MusicSourceEnum.QQMusic.getSource());
             list.add(music);
         }
