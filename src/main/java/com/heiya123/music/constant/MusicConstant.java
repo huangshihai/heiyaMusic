@@ -9,7 +9,7 @@ public final class MusicConstant {
     private MusicConstant() {
     }
 
-    public static final String QQMUSIC_SEARCH = "http://soso.music.qq.com/fcgi-bin/search_cp?aggr=0&catZhida=0&lossless=1&sem=1&w=%s&n=%d&t=0&p=%d&remoteplace=sizer.yqqlist.song&g_tk=5381&loginUin=0&hostUin=0&format=jsonp&inCharset=GB2312&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0";
+    public static final String QQMUSIC_SEARCH = "http://soso.music.qq.com/fcgi-bin/search_cp?aggr=0&catZhida=0&lossless=1&sem=1&w=%s&n=%d&t=0&p=%d&remoteplace=sizer.yqqlist.song&g_tk=5381&loginUin=0&hostUin=0&format=json&inCharset=GB2312&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0";
 
     public static final String QQMUSIC_REQ_URL = "http://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=0&loginUin=%s&hostUin=0&format=json&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0&cid=205361747&uin=%s&songmid=003a1tne1nSz1Y&filename=C400003a1tne1nSz1Y.m4a&guid=%s";
 

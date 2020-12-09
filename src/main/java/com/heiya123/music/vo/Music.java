@@ -1,6 +1,7 @@
 package com.heiya123.music.vo;
 
 import com.heiya123.music.musicEnum.MusicType;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -53,6 +54,6 @@ public class Music {
      */
     private String url;
 
-    private String allRate;
+    private List<String> allRate;
 
 }

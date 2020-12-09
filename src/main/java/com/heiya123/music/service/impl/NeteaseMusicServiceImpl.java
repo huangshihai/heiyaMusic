@@ -1,13 +1,13 @@
 package com.heiya123.music.service.impl;
 
 
-import com.alibaba.fastjson.JSON;
 import com.heiya123.music.common.RequestHeaders;
 import com.heiya123.music.constant.MusicConstant;
 import com.heiya123.music.musicEnum.MusicType;
 import com.heiya123.music.service.MusicService;
+import com.heiya123.music.util.HttpUtils;
+import com.heiya123.music.util.JacksonUtil;
 import com.heiya123.music.util.NeteaseEncryption;
-import com.heiya123.music.util.OkHttpUtils;
 import com.heiya123.music.vo.Music;
 import com.heiya123.music.vo.MusicReqVo;
 import com.heiya123.music.vo.netease.NeteaseMusicBase;
@@ -20,9 +20,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
-@Service("NeteaseMusic")
+@Service
 public class NeteaseMusicServiceImpl implements MusicService {
 
 
@@ -32,27 +33,21 @@ public class NeteaseMusicServiceImpl implements MusicService {
   @Override
   public List<Music> getMusics(MusicReqVo req) {
     ArrayList<Music> list = new ArrayList<>();
-    Map<String, String> params = new HashMap<String, String>();
+    Map<String, String> params = new HashMap<>();
     params.put("s", req.getName());
     params.put("limit", req.getPageSize() + "");
     params.put("type", "1");
     params.put("offset", (req.getPageNo() - 1) * req.getPageSize() + "");
-    NeteaseMusicBase neteaseMusicBase = OkHttpUtils
-        .postRequest(MusicConstant.NETNASEMUSIC_SEARCH, RequestHeaders.NETEASEHEADERS, params,
+    NeteaseMusicBase neteaseMusicBase = HttpUtils
+        .postRequest(MusicConstant.NETNASEMUSIC_SEARCH, RequestHeaders.NETEASE_HEADERS, params,
             NeteaseMusicBase.class);
     List<SongsBean> songs = neteaseMusicBase.getResult().getSongs();
     for (SongsBean song : songs) {
       Music music = new Music();
       music.setName(song.getName());
-      StringBuilder artist = new StringBuilder();
       List<ArtistsBean> artists = song.getArtists();
-      for (int i = 0; i < artists.size(); i++) {
-        artist.append(artists.get(i).getName());
-        if (i != artists.size() - 1) {
-          artist.append("、");
-        }
-      }
-      music.setArtist(artist.toString());
+      String artist = artists.stream().map(ArtistsBean::getName).collect(Collectors.joining("、"));
+      music.setArtist(artist);
       music.setAlbum(song.getAlbum().getName());
       String songId = song.getDuration() + "";
       music.setPic_id(songId);
@@ -71,7 +66,8 @@ public class NeteaseMusicServiceImpl implements MusicService {
   @Override
   public Object getPlayList(String id) {
     String url = String.format(MusicConstant.NETNASEMUSIC_PLAY_LIST, id);
-    return JSON.parse(OkHttpUtils.getRequest(url, RequestHeaders.NETEASEHEADERS));
+    return JacksonUtil
+        .read(HttpUtils.getRequest(url, RequestHeaders.NETEASE_HEADERS), Object.class);
   }
 
   /**
@@ -80,7 +76,8 @@ public class NeteaseMusicServiceImpl implements MusicService {
   @Override
   public Object getUserPlayList(String id) {
     String url = String.format(MusicConstant.NETNASEMUSIC_USER_PLAY_LIST, id);
-    return JSON.parse(OkHttpUtils.getRequest(url, RequestHeaders.NETEASEHEADERS));
+    return JacksonUtil
+        .read(HttpUtils.getRequest(url, RequestHeaders.NETEASE_HEADERS), Object.class);
   }
 
   /**
@@ -88,15 +85,15 @@ public class NeteaseMusicServiceImpl implements MusicService {
    */
   @Override
   public String getMusicUrl(String id, String bit) {
-    RequestHeaders.NETEASEHEADERS.put("User-Agent", RequestHeaders.randomUserAgent());
-    RequestHeaders.NETEASEHEADERS.put("Cookie", RequestHeaders.getNeteaseCookie());
+    RequestHeaders.NETEASE_HEADERS.add("User-Agent", RequestHeaders.randomUserAgent());
+    RequestHeaders.NETEASE_HEADERS.add("Cookie", RequestHeaders.getNeteaseCookie());
     Map<String, String> map = new HashMap<>();
     map.put("ids", "[" + id + "]");
     map.put("br", "320000");
-    String data = JSON.toJSONString(map);
+    String data = JacksonUtil.write(map);
     Map<String, String> params = NeteaseEncryption.encrypt(data);
-    NeteaseMusicUrl neteaseMusicUrl = OkHttpUtils
-        .postRequest(MusicConstant.NETNASEMUSIC_URL, RequestHeaders.NETEASEHEADERS, params,
+    NeteaseMusicUrl neteaseMusicUrl = HttpUtils
+        .postRequest(MusicConstant.NETNASEMUSIC_URL, RequestHeaders.NETEASE_HEADERS, params,
             NeteaseMusicUrl.class);
     if (neteaseMusicUrl.getCode() != -460) {
       return neteaseMusicUrl.getData().get(0).getUrl() == null ? ""
@@ -111,8 +108,8 @@ public class NeteaseMusicServiceImpl implements MusicService {
   @Override
   public String getPic(String id) {
     String url = String.format(MusicConstant.NETNASEMUSIC_PIC, id, id);
-    NeteaseMusicPic neteaseMusicPic = OkHttpUtils
-        .getRequest(url, RequestHeaders.NETEASEHEADERS, null, NeteaseMusicPic.class);
+    NeteaseMusicPic neteaseMusicPic = HttpUtils
+        .getRequest(url, RequestHeaders.NETEASE_HEADERS, null, NeteaseMusicPic.class);
     return neteaseMusicPic.getSongs().get(0).getAlbum().getPicUrl();
   }
 
@@ -123,12 +120,17 @@ public class NeteaseMusicServiceImpl implements MusicService {
   public String getLyric(String id) {
     String lrc = "";
     String url = String.format(MusicConstant.NETNASEMUSIC_LYRIC, id);
-    NeteaseMusicLyr neteaseMusicLyr = OkHttpUtils
-        .getRequest(url, RequestHeaders.NETEASEHEADERS, null, NeteaseMusicLyr.class);
+    NeteaseMusicLyr neteaseMusicLyr = HttpUtils
+        .getRequest(url, RequestHeaders.NETEASE_HEADERS, null, NeteaseMusicLyr.class);
     if (neteaseMusicLyr != null && neteaseMusicLyr.getLrc() != null) {
       lrc = neteaseMusicLyr.getLrc().getLyric();
     }
     return lrc;
+  }
+
+  @Override
+  public MusicType getType() {
+    return MusicType.NETEASE;
   }
 
 }

@@ -2,11 +2,13 @@ package com.heiya123.music.musicEnum;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import lombok.Getter;
 
 /**
  * @author huangsh
  * @date 2019/5/9
  */
+@Getter
 public enum MusicType {
 
   QQ("QQMusic", "QQ音乐", 1),

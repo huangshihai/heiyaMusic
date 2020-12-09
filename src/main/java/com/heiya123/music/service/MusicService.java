@@ -1,9 +1,8 @@
 package com.heiya123.music.service;
 
+import com.heiya123.music.musicEnum.MusicType;
 import com.heiya123.music.vo.Music;
 import com.heiya123.music.vo.MusicReqVo;
-
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -24,7 +23,7 @@ public interface MusicService {
     return null;
   }
 
-  default String getMusicUrl(String id,String bit) {
+  default String getMusicUrl(String id, String bit) {
     return null;
   }
 
@@ -35,4 +34,6 @@ public interface MusicService {
   default Object getUserPlayList(String id) {
     return null;
   }
+
+  MusicType getType();
 }

@@ -5,7 +5,7 @@ import com.heiya123.music.common.RequestHeaders;
 import com.heiya123.music.constant.MusicConstant;
 import com.heiya123.music.musicEnum.MusicType;
 import com.heiya123.music.service.MusicService;
-import com.heiya123.music.util.OkHttpUtils;
+import com.heiya123.music.util.HttpUtils;
 import com.heiya123.music.vo.Music;
 import com.heiya123.music.vo.MusicReqVo;
 import com.heiya123.music.vo.xiami.XiaMiMusicBase;
@@ -15,7 +15,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-@Service("XiamiMusic")
+@Service
 public class XiaMiMusicServiceImpl implements MusicService {
 
 
@@ -27,8 +27,8 @@ public class XiaMiMusicServiceImpl implements MusicService {
     ArrayList<Music> list = new ArrayList<>();
     String url = String
         .format(MusicConstant.XIAMIMUSIC_SEARCH, req.getName(), req.getPageNo(), req.getPageSize());
-    XiaMiMusicBase xiaMiMusicBase = OkHttpUtils
-        .getRequest(url, RequestHeaders.XIAMIHEADERS, null, XiaMiMusicBase.class);
+    XiaMiMusicBase xiaMiMusicBase = HttpUtils
+        .getRequest(url, RequestHeaders.XIAMI_HEADERS, null, XiaMiMusicBase.class);
     List<Songs> songs = xiaMiMusicBase.getData().getSongs();
     for (Songs song : songs) {
       Music music = new Music();
@@ -55,12 +55,17 @@ public class XiaMiMusicServiceImpl implements MusicService {
   public String getLyric(String url) {
     String lyr = null;
     if (!StringUtils.isEmpty(url) && url.contains("http")) {
-      String rsp = OkHttpUtils.getRequest(url, RequestHeaders.XIAMIHEADERS);
+      String rsp = HttpUtils.getRequest(url, RequestHeaders.XIAMI_HEADERS);
       if (rsp != null) {
         String regex = "<([0-9]+)>";
         lyr = rsp.replaceAll(regex, "");
       }
     }
     return lyr;
+  }
+
+  @Override
+  public MusicType getType() {
+    return MusicType.XIAMI;
   }
 }

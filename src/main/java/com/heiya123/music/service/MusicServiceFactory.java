@@ -1,6 +1,7 @@
 package com.heiya123.music.service;
 
 import com.heiya123.music.musicEnum.MusicType;
+import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -15,21 +16,23 @@ import org.springframework.stereotype.Component;
 public class MusicServiceFactory implements ApplicationContextAware {
 
   private ApplicationContext applicationContext;
-  private Map<String, MusicService> serviceMap;
+  private static Map<MusicType, MusicService> serviceMap;
 
   @Override
   public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
     this.applicationContext = applicationContext;
+    this.init();
   }
 
-  public MusicService getService(MusicType type) {
-    if (serviceMap == null) {
-      synchronized (MusicServiceFactory.class) {
-        if (serviceMap == null) {
-          serviceMap = applicationContext.getBeansOfType(MusicService.class);
-        }
-      }
+  private void init() {
+    Map<String, MusicService> beans = applicationContext.getBeansOfType(MusicService.class);
+    serviceMap = new HashMap<>();
+    for (MusicService service : beans.values()) {
+      serviceMap.put(service.getType(), service);
     }
-    return serviceMap.get(type.getName());
+  }
+
+  public static MusicService getService(MusicType type) {
+    return serviceMap.get(type);
   }
 }

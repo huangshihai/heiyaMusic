@@ -1,14 +1,13 @@
 package com.heiya123.music.service.impl;
 
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.heiya123.music.common.RequestHeaders;
 import com.heiya123.music.constant.MusicConstant;
 import com.heiya123.music.musicEnum.MusicType;
 import com.heiya123.music.service.MusicService;
 import com.heiya123.music.util.CommonUtils;
-import com.heiya123.music.util.OkHttpUtils;
+import com.heiya123.music.util.HttpUtils;
+import com.heiya123.music.util.JacksonUtil;
 import com.heiya123.music.vo.Music;
 import com.heiya123.music.vo.MusicReqVo;
 import com.heiya123.music.vo.kugou.KuGouMusicBase;
@@ -16,9 +15,10 @@ import com.heiya123.music.vo.kugou.KuGouMusicBase.DataBean.ListsBean;
 import com.heiya123.music.vo.kugou.KuGouMusicUrl;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import org.springframework.stereotype.Service;
 
-@Service("KugouMusic")
+@Service
 public class KuGouMusicServiceImpl implements MusicService {
 
   /**
@@ -29,8 +29,8 @@ public class KuGouMusicServiceImpl implements MusicService {
     ArrayList<Music> list = new ArrayList<>();
     String url = String
         .format(MusicConstant.KUGOUMUSIC_SEARCH, req.getName(), req.getPageNo(), req.getPageSize());
-    KuGouMusicBase kuGouMusicBase = OkHttpUtils
-        .getRequest(url, RequestHeaders.KUGOUHEADERS, null, KuGouMusicBase.class);
+    KuGouMusicBase kuGouMusicBase = HttpUtils
+        .getRequest(url, RequestHeaders.KUGOU_HEADERS, null, KuGouMusicBase.class);
     List<ListsBean> lists = kuGouMusicBase.getData().getLists();
     String emptyKey = "00000000000000000000000000000000";
     for (ListsBean song : lists) {
@@ -57,9 +57,9 @@ public class KuGouMusicServiceImpl implements MusicService {
   @Override
   public String getPic(String hash) {
     String url = String.format(MusicConstant.KUGOUMUSIC_PIC, hash);
-    String rsp = OkHttpUtils.getRequest(url, RequestHeaders.KUGOUHEADERS);
-    JSONObject jsonObject = JSON.parseObject(rsp);
-    return (String) jsonObject.get("url");
+    String rsp = HttpUtils.getRequest(url, RequestHeaders.KUGOU_HEADERS);
+    Map<String, String> map = JacksonUtil.readMap(rsp, String.class, String.class);
+    return map.get("url");
   }
 
   /**
@@ -69,8 +69,8 @@ public class KuGouMusicServiceImpl implements MusicService {
   public String getMusicUrl(String hash, String bit) {
     String url = String
         .format(MusicConstant.KUGOUMUSIC_URL, hash, CommonUtils.getMD5(hash + "kgcloudv2"));
-    KuGouMusicUrl kuGouMusic = OkHttpUtils
-        .getRequest(url, RequestHeaders.KUGOUHEADERS, null, KuGouMusicUrl.class);
+    KuGouMusicUrl kuGouMusic = HttpUtils
+        .getRequest(url, RequestHeaders.KUGOU_HEADERS, null, KuGouMusicUrl.class);
     return kuGouMusic.getUrl();
   }
 
@@ -80,6 +80,11 @@ public class KuGouMusicServiceImpl implements MusicService {
   @Override
   public String getLyric(String hash) {
     String url = String.format(MusicConstant.KUGOUMUSIC_LYRIC, hash);
-    return OkHttpUtils.getRequest(url, RequestHeaders.KUGOUHEADERS);
+    return HttpUtils.getRequest(url, RequestHeaders.KUGOU_HEADERS);
+  }
+
+  @Override
+  public MusicType getType() {
+    return MusicType.KUGOU;
   }
 }
