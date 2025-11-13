@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <okhttp3.version>3.4.1</okhttp3.version>
+        <okhttp3.version>4.9.2</okhttp3.version>
         <commons-lang.version>2.6</commons-lang.version>
         <fastjson.version>1.2.31</fastjson.version>
         <lombok.version>1.18.6</lombok.version>
